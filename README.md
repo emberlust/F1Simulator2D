@@ -1,5 +1,5 @@
 # F1Simulator2D
-## *2. Desfășurare cursa Formula 1*
+## **2. Desfășurare cursa Formula 1**
 La o cursa de Formula 1 participa N monoposturi (piloți). Fiecare mașină are
 anumiți parametri: viteza maxima, rata de consum al combustibilului, timp de viață al
 roților, viteza de accelerație.
