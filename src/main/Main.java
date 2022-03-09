@@ -2,6 +2,7 @@ package main;
 
 import race.Race;
 import score.ScoreBoard;
+import map.Map;
 
 public class Main {
 
@@ -10,7 +11,7 @@ public class Main {
 		
 		ScoreBoard score;
 		
-		Race f1 = new Race(2,20,1);
+		Race f1 = new Race(1,20,1);
 		score = f1.begin_race();
 		
 		score.ShowScore();

@@ -24,11 +24,9 @@ public class Map {
 		}
 	}
 	
-	//1-right
-	//2-down
-	//3-left
-	//4-up
-	//5-box
+	
+	//1 road tile
+	//2 box tile
 	
 	public Coordinates generate_simple_path()
 	{	
@@ -41,22 +39,22 @@ public class Map {
 		this.map_matrix[2][j][1]=50;
 		for(i=2;i<this.map_size-3;i++)
 		{
-			this.map_matrix[i][this.map_size-3][0]=2;
+			this.map_matrix[i][this.map_size-3][0]=1;
 		}
 		this.map_matrix[2][j][1]=50;
 		for(j=this.map_size-3;j>2;j--)
 		{
-			this.map_matrix[this.map_size-3][j][0]=3;
+			this.map_matrix[this.map_size-3][j][0]=1;
 		}
 		this.map_matrix[2][j][1]=50;
 		for(i=this.map_size-3;i>2;i--)
 		{
-			this.map_matrix[i][2][0]=4;
+			this.map_matrix[i][2][0]=1;
 		}
 		this.map_matrix[2][j][1]=50;
 		
-		this.map_matrix[3][this.map_size/2][0]=5;
-		this.map_matrix[this.map_size-4][this.map_size/2][0]=5;
+		this.map_matrix[3][this.map_size/2][0]=2;
+		this.map_matrix[this.map_size-4][this.map_size/2][0]=2;
 		
 		Coordinates start_line = new Coordinates();
 		start_line.y=this.map_size/2;

@@ -11,14 +11,16 @@ public class Car {
 	
 	private float c_speed;
 	private float fuel;
+	private float c_tire_life;
 	
 	public Car()//test car
 	{
 		this.id =1;
 		this.top_speed=(float)100;
-		this.acc=(float) 10.5;
-		this.fuel_consumption=Float.MAX_VALUE;
-		this.tire_life=Float.MAX_VALUE;
+		this.acc=(float) 1.5;
+		this.fuel_consumption=(float)1.5;
+		this.tire_life=50;
+		this.fuel = 100;
 	}
 	
 	public Car(float top_speed,float fuel_consumption,float tire_life, float acc)
@@ -34,7 +36,7 @@ public class Car {
 		return this.c_speed;
 	}
 	
-	public void action(float road_max_speed, boolean free_road)
+	public boolean action(float road_max_speed)
 	{
 		if(this.c_speed<road_max_speed)
 		{
@@ -44,6 +46,24 @@ public class Car {
 		{
 			this.brake(road_max_speed);
 		}
+		this.fuel-=this.fuel_consumption;
+		this.c_tire_life--;
+		
+		if(this.fuel <= this.fuel/4 || this.c_tire_life<this.c_tire_life/4)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public void in_box()
+	{
+		this.fuel = 100;
+		this.c_tire_life = this.tire_life;
+		
 	}
 	
 	private void accelerate(float desired_speed)
