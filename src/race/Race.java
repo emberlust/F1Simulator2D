@@ -10,8 +10,8 @@ import java.util.Vector;
 
 public class Race {
 	
-	private Map race_map;
 	private Vector<Car> cars;
+	private Map race_map;
 	private int no_cars;
 	private int[] car_loops;
 	private Coordinates[] cars_co;
@@ -22,22 +22,20 @@ public class Race {
 	
 	private int loops;
 	
-	public Race(int no_cars,int map_size,int no_loops)
+	public Race(Car[] cars,Map map,int no_loops)
 	{
-		this.race_map = new Map();
-		this.race_map.init_map(map_size);
-		this.start_line = race_map.generate_simple_path();
+		this.race_map = map;
 		this.cars =  new Vector<Car>(0);
-		this.no_cars = no_cars;
+		this.no_cars = cars.length;
 		this.car_loops = new int[this.no_cars];
 		this.cars_co = new Coordinates[this.no_cars];
 		this.cars_last_co = new Coordinates[this.no_cars];
 		this.preTime = new Instant[this.no_cars];
-		
+		this.start_line = map.get_start_line();
 		
 		for(int i=0;i<this.no_cars;i++)
 		{
-			this.cars.add(new Car());
+			this.cars.add(cars[i]);
 			this.car_loops[i] = 0;
 			this.cars_co[i] = new Coordinates();
 			this.cars_last_co[i] = new Coordinates();

@@ -3,7 +3,7 @@ package main;
 import race.Race;
 import score.ScoreBoard;
 import map.Map;
-import gui.Window;
+import car.Car;
 
 public class Main {
 
@@ -12,12 +12,18 @@ public class Main {
 		
 		ScoreBoard score;
 		
-		Race f1 = new Race(1,20,1);
+		Map race_map = new Map();
+		race_map.init_map(20);
+		race_map.generate_simple_path();
+		
+		Car[] cars = new Car[1];
+		
+		cars[0] = new Car();
+		
+		Race f1 = new Race(cars,race_map,1);
 		score = f1.begin_race();
 		
 		score.ShowScore();
-		
-		Window main_frame = new Window();
 		
 		System.out.println("End test");
 	}

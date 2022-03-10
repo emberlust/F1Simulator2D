@@ -3,6 +3,7 @@ package map;
 public class Map {
 	private float[][][] map_matrix;
 	private int map_size;
+	private Coordinates start_line;
 	
 	public Map()
 	{
@@ -56,7 +57,7 @@ public class Map {
 		this.map_matrix[3][this.map_size/2][0]=2;
 		this.map_matrix[this.map_size-4][this.map_size/2][0]=2;
 		
-		Coordinates start_line = new Coordinates();
+		this.start_line = new Coordinates();
 		start_line.y=this.map_size/2;
 		start_line.x=2;
 		
@@ -64,6 +65,10 @@ public class Map {
 		
 	}
 	
+	public Coordinates get_start_line()
+	{
+		return this.start_line;
+	}
 	
 	public float map_data(int x, int y, int z)
 	{
