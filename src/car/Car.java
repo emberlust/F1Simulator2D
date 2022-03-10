@@ -1,5 +1,7 @@
 package car;
 
+import java.util.Random;
+
 public class Car {
 	
 	private int id;
@@ -15,16 +17,18 @@ public class Car {
 	
 	public Car()//test car
 	{
-		this.id =1;
-		this.top_speed=(float)100;
-		this.acc=(float) 1.5;
-		this.fuel_consumption=(float)1.5;
-		this.tire_life=50;
-		this.fuel = 100;
+		Random random_values = new Random();
+		this.id = random_values.nextInt(1,100);
+		this.top_speed = random_values.nextFloat(10, 150);
+		this.acc = random_values.nextFloat(1, 15);
+		this.fuel_consumption = random_values.nextFloat(1,10);
+		this.tire_life = random_values.nextFloat(40,100);
+		this.fuel = (float)100;
 	}
 	
-	public Car(float top_speed,float fuel_consumption,float tire_life, float acc)
+	public Car(int id,float top_speed,float fuel_consumption,float tire_life, float acc)
 	{
+		this.id = id;
 		this.top_speed=top_speed;
 		this.fuel_consumption=fuel_consumption;
 		this.tire_life=tire_life;
