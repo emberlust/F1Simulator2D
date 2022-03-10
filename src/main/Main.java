@@ -3,6 +3,7 @@ package main;
 import race.Race;
 import score.ScoreBoard;
 import map.Map;
+import gui.Window;
 
 public class Main {
 
@@ -15,6 +16,8 @@ public class Main {
 		score = f1.begin_race();
 		
 		score.ShowScore();
+		
+		Window main_frame = new Window();
 		
 		System.out.println("End test");
 	}

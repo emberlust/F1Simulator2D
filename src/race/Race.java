@@ -24,8 +24,6 @@ public class Race {
 	
 	public Race(int no_cars,int map_size,int no_loops)
 	{
-		
-		
 		this.race_map = new Map();
 		this.race_map.init_map(map_size);
 		this.start_line = race_map.generate_simple_path();
