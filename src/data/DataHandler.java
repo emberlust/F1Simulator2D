@@ -21,7 +21,6 @@ public class DataHandler {
 	
 	public NodeList pull_data(String tag, Document document)
 	{	
-		document.getDocumentElement().normalize();
 		Element root = document.getDocumentElement();
 		NodeList doc_data = null;
 		doc_data = root.getElementsByTagName(tag);
@@ -32,7 +31,6 @@ public class DataHandler {
 	
 	public void push_data(String text, int number, String tag_parent, String tag, Document document)
 	{
-		document.getDocumentElement().normalize();
 		Element root = document.getDocumentElement();
 		Element parent = (Element) root.getElementsByTagName(tag_parent).item(0);
 		
@@ -71,8 +69,7 @@ public class DataHandler {
 	}
 	
 	public void update_data(String text, int number, String tag, String data_identifier, Document document)
-	{	
-		document.getDocumentElement().normalize();
+	{
 		
 		Element root = document.getDocumentElement();
 		Element parent = (Element) root.getElementsByTagName(tag).item(0);

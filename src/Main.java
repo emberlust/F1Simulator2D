@@ -40,7 +40,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		document.getDocumentElement().normalize();
 		ScoreBoard score;
 		
 		Map race_map = new Map();
@@ -50,7 +50,7 @@ public class Main {
 		
 		DataHandler data = new DataHandler();
 		
-		NodeList pilots_data = data.pull_data("pilots", document);
+		NodeList pilots_data = data.pull_data("pilot", document);
 		
 		for(int i = 0; i<pilots_data.getLength(); i++)
 		{
@@ -59,6 +59,7 @@ public class Main {
 		    {
 		    	Element element = (Element) node;
 		    	System.out.println(element.getElementsByTagName("name").item(0).getTextContent());
+		    	System.out.println(element.getElementsByTagName("points").item(0).getTextContent());
 		    }
 		}
 		
@@ -71,9 +72,9 @@ public class Main {
 		pilots[0] = new Pilot();
 		
 		Race f1 = new Race(pilots,race_map,1);
-		score = f1.begin_race();
+		//score = f1.begin_race();
 		
-		score.show_score();
+		//score.show_score();
 		
 		System.out.println("End test");
 	}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
     <pilots>
-        <pilot>   
-            <name>Pilot1</name>      
-            <points>10</points>                  
+        <pilot>
+            <name>Pilot1</name>
+            <points>46</points>  
         </pilot>
         <pilot>
             <name>Pilot2</name>
