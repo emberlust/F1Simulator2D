@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<data>
+    <pilots>
+        <pilot>   
+            <name>Pilot1</name>      
+            <points>10</points>                  
+        </pilot>
+        <pilot>
+            <name>Pilot2</name>
+            <points>20</points>
+        </pilot>
+    </pilots>
+    <teams>
+        <team> 
+            <name>Team1</name>
+            <points>10</points>
+        </team>
+    </teams>
+</data>

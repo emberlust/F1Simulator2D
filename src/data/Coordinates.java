@@ -1,4 +1,4 @@
-package map;
+package data;
 
 public class Coordinates{
 	public int x;
