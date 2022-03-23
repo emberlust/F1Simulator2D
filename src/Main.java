@@ -5,9 +5,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import data.DataHandler;
@@ -41,27 +38,15 @@ public class Main {
 			e.printStackTrace();
 		}
 		document.getDocumentElement().normalize();
-		ScoreBoard score;
+		ScoreBoard score = null;
 		
 		Map race_map = new Map();
 		race_map.init_map(20);
 		race_map.generate_simple_path();
 		
-		
-		DataHandler data = new DataHandler();
-		
-		NodeList pilots_data = data.pull_data("pilot", document);
-		
-		for(int i = 0; i<pilots_data.getLength(); i++)
-		{
-		    Node node = pilots_data.item(i);
-		    if(node.getNodeType() == Node.ELEMENT_NODE)
-		    {
-		    	Element element = (Element) node;
-		    	System.out.println(element.getElementsByTagName("name").item(0).getTextContent());
-		    	System.out.println(element.getElementsByTagName("points").item(0).getTextContent());
-		    }
-		}
+		ScoreBoard read_data = DataHandler.pull_data(document);
+		read_data.show_score();
+		DataHandler.push_data(read_data, document);
 		
 		//data.update_data("Pilot1",12,"pilots","pilot",document);
 		

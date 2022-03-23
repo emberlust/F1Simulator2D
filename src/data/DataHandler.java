@@ -9,6 +9,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class DataHandler {
@@ -19,32 +20,72 @@ public class DataHandler {
 		
 	}
 	
-	public NodeList pull_data(String tag, Document document)
+	public static ScoreBoard pull_data(Document document)
 	{	
 		Element root = document.getDocumentElement();
 		NodeList doc_data = null;
-		doc_data = root.getElementsByTagName(tag);
-
-		return doc_data;
+		doc_data = root.getElementsByTagName("pilot");
+		
+		ScoreBoard score = new ScoreBoard();
+		for(int i = 0; i<doc_data.getLength(); i++)
+		{
+			Node node = doc_data.item(i);
+			if(node.getNodeType() == Node.ELEMENT_NODE)
+			{
+				Element element = (Element) node;
+			    score.place_participant(new Pilot(element.getElementsByTagName("name").item(0).getTextContent(),null),Integer.parseInt(element.getElementsByTagName("points").item(0).getTextContent()));
+			    	
+			}
+		}
+		
+		score.sort();
+		
+		return score;
 		
 	}
 	
-	public void push_data(String text, int number, String tag_parent, String tag, Document document)
+	public static void push_data(ScoreBoard score, Document document)
 	{
-		Element root = document.getDocumentElement();
-		Element parent = (Element) root.getElementsByTagName(tag_parent).item(0);
 		
-		Element new_element = document.createElement(tag);
+		for(int i = 0; i<score.get_no_participants();i++)
+		{
+			boolean found = false;
+			Element root = document.getDocumentElement();
+			Element parent = (Element) root.getElementsByTagName("pilots").item(0);
+			NodeList data = parent.getElementsByTagName("pilot"); 
+			
+			for(int j = 0; j<data.getLength();j++)
+			{
+				Element item = (Element) data.item(j);
+				
+				String str = item.getElementsByTagName("name").item(0).getTextContent();
+				
+				if(str.equals(score.get_participant(i).get_name()))
+				{
+					DataHandler.update_data(score.get_participant(i).get_name(), score.get_score(i) + Integer.parseInt(item.getElementsByTagName("points").item(0).getTextContent()) , document);
+					found = true;
+				}
+			}
+			
+			if(found)
+			{
+				continue;
+			}
+			
+			Element new_element = document.createElement("pilot");
+			
+			Element data_1 = document.createElement("name");
+			data_1.setTextContent(score.get_participant(i).get_name());
+			
+			Element data_2 = document.createElement("points");
+			data_2.setTextContent(new String(Integer.toString(score.get_score(i))));
+			
+			new_element.appendChild(data_1);
+			new_element.appendChild(data_2);
+			parent.appendChild(new_element);
+		}
 		
-		Element data_1 = document.createElement("name");
-		data_1.setTextContent(text);
 		
-		Element data_2 = document.createElement("points");
-		data_2.setTextContent(new String(Integer.toString(number)));
-		
-		new_element.appendChild(data_1);
-		new_element.appendChild(data_2);
-		parent.appendChild(new_element);
 		
 		DOMSource source = new DOMSource(document);
 		TransformerFactory transformer_factory = TransformerFactory.newInstance();
@@ -68,12 +109,12 @@ public class DataHandler {
 		}
 	}
 	
-	public void update_data(String text, int number, String tag, String data_identifier, Document document)
+	private static void update_data(String text, int number, Document document)
 	{
 		
 		Element root = document.getDocumentElement();
-		Element parent = (Element) root.getElementsByTagName(tag).item(0);
-		NodeList data = parent.getElementsByTagName(data_identifier);
+		Element parent = (Element) root.getElementsByTagName("pilots").item(0);
+		NodeList data = parent.getElementsByTagName("pilot");
 		
 		for(int i = 0; i<data.getLength();i++)
 		{
@@ -83,30 +124,9 @@ public class DataHandler {
 			
 			if(str.equals(text))
 			{
-				item.getElementsByTagName("points").item(0).setTextContent(Integer.toString(Integer.parseInt(item.getElementsByTagName("points").item(0).getTextContent())+number));
+				item.getElementsByTagName("points").item(0).setTextContent(Integer.toString(number));
 			}
 		
-		}
-		
-		DOMSource source = new DOMSource(document);
-		TransformerFactory transformer_factory = TransformerFactory.newInstance();
-		Transformer transformer = null;
-		try {
-			transformer = transformer_factory.newTransformer();
-		} catch (TransformerConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-		
-		StreamResult result = new StreamResult("scores.xml");
-		try {
-			transformer.transform(source, result);
-		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 }

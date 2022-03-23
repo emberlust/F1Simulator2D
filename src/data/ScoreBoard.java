@@ -27,12 +27,41 @@ public class ScoreBoard {
 		}
 	}
 	
+	public void place_participant(Pilot pilot, int score)
+	{
+		this.no_pilots++;
+		this.pilots.add(pilot);
+		this.scores.add(score);
+	}
+	
 	public void show_score()
 	{
 		System.out.println("There were " + this.no_pilots + " participants with the next rezults: ");
 		this.poz = 1;
-		this.pilots.forEach(pilot->{System.out.println(pilot.get_name() + " placed " + poz++ + " with score " + this.get_scores(poz-2));});
+		this.pilots.forEach(pilot->{System.out.println(pilot.get_name() + " placed " + poz++ + " with score " + this.get_score(poz-2));});
 	}
+	
+	public void sort()
+	{
+		for(int i = 0; i < this.no_pilots - 1; i++)
+		{
+			for(int j = 0; j < this.no_pilots; j++)
+			{
+				if(scores.get(i)<scores.get(j))
+				{
+					Pilot aux_pilot = pilots.get(i);
+					int aux_score = scores.get(i);
+					
+					scores.set(i, scores.get(j));
+					scores.set(j, aux_score);
+					
+					pilots.set(i, pilots.get(j));
+					pilots.set(j, aux_pilot);
+				}
+			}
+		}
+	}
+	
 	
 	public int get_no_participants()
 	{
@@ -44,7 +73,7 @@ public class ScoreBoard {
 			return this.pilots.get(poz);
 	}
 	
-	public int get_scores(int poz)
+	public int get_score(int poz)
 	{
 		return this.scores.get(poz);
 	}

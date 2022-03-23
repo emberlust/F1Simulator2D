@@ -15,7 +15,10 @@ public class Pilot {
 	public Pilot(String name, Car car)
 	{
 		this.name = name;
-		this.car = car;
+		if(car != null)
+		{
+			this.car = car;
+		}
 	}
 	
 	public String get_name()
