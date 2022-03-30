@@ -1,0 +1,5 @@
+
+New logging session at: 2022-03-30T15:12:59.569201400Z
+
+2022-03-30T15:12:59.579200100Z
+Reading from file.

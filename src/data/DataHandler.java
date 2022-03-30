@@ -1,4 +1,9 @@
 package data;
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -11,17 +16,39 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import logging.Logger;
 
 public class DataHandler {
 	
 	
-	public DataHandler()
-	{
-		
-	}
+	private static final String source = "scores.xml";
 	
-	public static ScoreBoard pull_data(Document document)
+	public static ScoreBoard pull_data()
 	{	
+		Logger logger = Logger.get_instance();
+		
+		logger.write("Reading from file.");
+		
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = null;
+		try {
+			builder = factory.newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			logger.write(e);
+		}
+		
+		Document document = null;
+		try {
+			document = builder.parse(source);
+		} catch (SAXException e) {
+			logger.write(e);
+		} catch (IOException e) {
+			logger.write(e);
+		}
+		document.getDocumentElement().normalize();
+		
 		Element root = document.getDocumentElement();
 		NodeList doc_data = null;
 		doc_data = root.getElementsByTagName("pilot");
@@ -44,8 +71,28 @@ public class DataHandler {
 		
 	}
 	
-	public static void push_data(ScoreBoard score, Document document)
+	public static void push_data(ScoreBoard score)
 	{
+		
+		Logger logger = Logger.get_instance();
+		
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = null;
+		try {
+			builder = factory.newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			logger.write(e);
+		}
+		
+		Document document = null;
+		try {
+			document = builder.parse(source);
+		} catch (SAXException e) {
+			logger.write(e);
+		} catch (IOException e) {
+			logger.write(e);
+		}
+		document.getDocumentElement().normalize();
 		
 		for(int i = 0; i<score.get_no_participants();i++)
 		{
@@ -62,7 +109,7 @@ public class DataHandler {
 				
 				if(str.equals(score.get_participant(i).get_name()))
 				{
-					DataHandler.update_data(score.get_participant(i).get_name(), score.get_score(i) + Integer.parseInt(item.getElementsByTagName("points").item(0).getTextContent()) , document);
+					DataHandler.update_data(score.get_participant(i).get_name(), score.get_score(i) + Integer.parseInt(item.getElementsByTagName("points").item(0).getTextContent()) , item,j);
 					found = true;
 				}
 			}
@@ -85,7 +132,14 @@ public class DataHandler {
 			parent.appendChild(new_element);
 		}
 		
+		DataHandler.write_data(document);
+	}
+	
+	private static void write_data(Document document)
+	{
+		Logger logger = Logger.get_instance();
 		
+		logger.write("Writing to file.");
 		
 		DOMSource source = new DOMSource(document);
 		TransformerFactory transformer_factory = TransformerFactory.newInstance();
@@ -93,8 +147,7 @@ public class DataHandler {
 		try {
 			transformer = transformer_factory.newTransformer();
 		} catch (TransformerConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.write(e);
 		}
 		
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -104,29 +157,14 @@ public class DataHandler {
 		try {
 			transformer.transform(source, result);
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.write(e);
 		}
 	}
 	
-	private static void update_data(String text, int number, Document document)
+	private static void update_data(String text, int number, Element item,int position)
 	{
 		
-		Element root = document.getDocumentElement();
-		Element parent = (Element) root.getElementsByTagName("pilots").item(0);
-		NodeList data = parent.getElementsByTagName("pilot");
+		item.getElementsByTagName("points").item(0).setTextContent(Integer.toString(number));
 		
-		for(int i = 0; i<data.getLength();i++)
-		{
-			Element item = (Element) data.item(i);
-			
-			String str = item.getElementsByTagName("name").item(0).getTextContent();
-			
-			if(str.equals(text))
-			{
-				item.getElementsByTagName("points").item(0).setTextContent(Integer.toString(number));
-			}
-		
-		}
 	}
 }
