@@ -18,6 +18,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import logging.Level;
 import logging.Logger;
 
 public class DataHandler {
@@ -29,23 +30,23 @@ public class DataHandler {
 	{	
 		Logger logger = Logger.get_instance();
 		
-		logger.write("Reading from file.");
+		logger.write(Level.INFO,"Reading from file.");
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = null;
 		try {
 			builder = factory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
-			logger.write(e);
+			logger.write(Level.SEVERE,e);
 		}
 		
 		Document document = null;
 		try {
 			document = builder.parse(source);
 		} catch (SAXException e) {
-			logger.write(e);
+			logger.write(Level.SEVERE,e);
 		} catch (IOException e) {
-			logger.write(e);
+			logger.write(Level.SEVERE,e);
 		}
 		document.getDocumentElement().normalize();
 		
@@ -73,7 +74,7 @@ public class DataHandler {
 	
 	public static void push_data(ScoreBoard score)
 	{
-		
+	
 		Logger logger = Logger.get_instance();
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -81,16 +82,16 @@ public class DataHandler {
 		try {
 			builder = factory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
-			logger.write(e);
+			logger.write(Level.SEVERE,e);
 		}
 		
 		Document document = null;
 		try {
 			document = builder.parse(source);
 		} catch (SAXException e) {
-			logger.write(e);
+			logger.write(Level.SEVERE,e);
 		} catch (IOException e) {
-			logger.write(e);
+			logger.write(Level.SEVERE,e);
 		}
 		document.getDocumentElement().normalize();
 		
@@ -139,7 +140,7 @@ public class DataHandler {
 	{
 		Logger logger = Logger.get_instance();
 		
-		logger.write("Writing to file.");
+		logger.write(Level.INFO,"Writing to file.");
 		
 		DOMSource source = new DOMSource(document);
 		TransformerFactory transformer_factory = TransformerFactory.newInstance();
@@ -147,7 +148,7 @@ public class DataHandler {
 		try {
 			transformer = transformer_factory.newTransformer();
 		} catch (TransformerConfigurationException e) {
-			logger.write(e);
+			logger.write(Level.SEVERE,e);
 		}
 		
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -157,7 +158,7 @@ public class DataHandler {
 		try {
 			transformer.transform(source, result);
 		} catch (TransformerException e) {
-			logger.write(e);
+			logger.write(Level.SEVERE,e);
 		}
 	}
 	

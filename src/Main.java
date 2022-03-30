@@ -3,7 +3,7 @@ import data.Map;
 import data.Pilot;
 import data.Race;
 import data.ScoreBoard;
-
+import logging.Level;
 import logging.Logger;
 
 public class Main {
@@ -11,6 +11,18 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ScoreBoard score = null;
+		
+		Logger logger = Logger.get_instance();
+		
+		int a = 5;
+		
+		try {
+			System.out.println(a/0);
+		}
+		catch(Exception e)
+		{
+			logger.write(Level.WARNING, e);
+		}
 		
 		Map race_map = new Map();
 		race_map.init_map(20);

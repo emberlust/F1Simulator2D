@@ -34,17 +34,17 @@ public class Logger {
 		return logger;
 	}
 	
-	public void write(Exception exception)
+	public void write(Level level,Exception exception)
 	{
 		this.logwriter.println();
 		this.logwriter.println(Instant.now());
-		exception.printStackTrace(logwriter);
+		this.logwriter.println(level.get_name() + "--" + exception);
 	}
 	
-	public void write(String log)
+	public void write(Level level, String log)
 	{
 		this.logwriter.println();
 		this.logwriter.println(Instant.now());
-		this.logwriter.println(log);
+		this.logwriter.println(level.get_name() + "--" + log);
 	}
 }
