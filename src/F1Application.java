@@ -13,7 +13,7 @@ public class F1Application {
 		
 		MapFactory map_f = new MapFactory();
 		
-		Map race_map = map_f.get_large_map();
+		Map race_map = map_f.get_small_map();
 		
 		Pilot[] pilots = new Pilot[2];
 		
@@ -23,7 +23,9 @@ public class F1Application {
 		Race f1 = new Race(race_map,1);
 		f1.place_participant(pilots[0]);
 		f1.place_participant(pilots[1]);
-		score = f1.start_race();
+		f1.start_race();
+		
+		score = f1.get_score();
 		
 		//score = DataHandler.pull_data();
 		//DataHandler.push_data(score);

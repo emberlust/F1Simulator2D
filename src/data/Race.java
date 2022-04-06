@@ -23,8 +23,11 @@ public class Race {
 	
 	private int loops;
 	
+	private ScoreBoard Scoreboard = null;
+	
 	public Race(Map map,int no_loops)
 	{
+		this.Scoreboard = new ScoreBoard();
 		this.preTime = new Vector<Instant>(0);
 		this.race_map = map;
 		this.pilots =  new Vector<Pilot>(0);
@@ -60,13 +63,12 @@ public class Race {
 	}
 	
 	//starts the race
-	public ScoreBoard start_race()
+	public void start_race()
 	{
 		for(int i=0;i<this.no_pilots;i++)
 		{
 			this.preTime.set(i, Instant.now());
 		}
-		ScoreBoard score = new ScoreBoard();
 		
 		Logger.get_instance().write(Level.DEBUG, "Start line " + this.start_line.x + " " + this.start_line.y);
 		
@@ -102,14 +104,13 @@ public class Race {
 					
 					if(pilot_loops.get(i)>this.loops)
 					{
-						score.place_participant(this.pilots.get(i));
+						this.Scoreboard.place_participant(this.pilots.get(i));
 						this.pilots.removeElementAt(i);
 						this.no_pilots--;
 					}
 				}
 			}
 		}
-		return score;
 	}
 	
 	private void calculates_on_x(int i,int next)
@@ -176,6 +177,11 @@ public class Race {
 				}
 			}
 		}
+	}
+	
+	public ScoreBoard get_score()
+	{
+		return this.Scoreboard;
 	}
 
 }
