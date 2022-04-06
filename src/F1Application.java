@@ -3,8 +3,7 @@ import data.Map;
 import data.Pilot;
 import data.Race;
 import data.ScoreBoard;
-import logging.Level;
-import logging.Logger;
+import data.MapFactory;
 
 public class F1Application {
 
@@ -12,9 +11,9 @@ public class F1Application {
 		
 		ScoreBoard score = null;
 		
-		Map race_map = new Map();
-		race_map.init_map(20);
-		race_map.generate_simple_path();
+		MapFactory map_f = new MapFactory();
+		
+		Map race_map = map_f.get_large_map();
 		
 		Pilot[] pilots = new Pilot[2];
 		

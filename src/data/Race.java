@@ -81,9 +81,12 @@ public class Race {
 				if(millis >= ((this.pilots.get(i).get_car_details().get_c_speed()==0)?0:(long)1000/this.pilots.get(i).get_car_details().get_c_speed()))
 				{
 					preTime.set(i, end);
-					float speed = this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y,1);
 					
-					int next = this.pilots.get(i).make_decision(speed, (int)this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y, 0));
+					
+					float speed = this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y,1);
+					int tile = (int)this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y, 0);
+					
+					int next = this.pilots.get(i).make_decision(speed, tile);
 					
 					this.calculates_on_x(i, next);
 					this.calculates_on_y(i, next);
