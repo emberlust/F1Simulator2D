@@ -33,8 +33,6 @@ public class Pilot {
 	
 	public int make_decision(float speed, int road_tipe)
 	{
-		
-		boolean feedback;
 		if(road_tipe == (float)2)
 		{
 			this.car.in_box();
@@ -42,15 +40,15 @@ public class Pilot {
 		
 		if(this.car.get_c_speed()<speed)
 		{
-			feedback = this.car.accelerate(speed);	
+			this.car.accelerate(speed);	
 		}
 		else
 		{
-			feedback = this.car.brake(speed);
+			this.car.brake(speed);
 		}
 		
 		
-		if(feedback)
+		if(this.car.feedback())
 		{
 			return 2;
 		}

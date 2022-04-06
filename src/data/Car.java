@@ -34,6 +34,8 @@ public class Car {
 		this.fuel_consumption=fuel_consumption;
 		this.tire_life=tire_life;
 		this.acc=acc;
+		this.c_tire_life = this.tire_life;
+		this.fuel = (float)100;
 	}
 
 	public float get_c_speed()
@@ -57,9 +59,8 @@ public class Car {
 		this.c_tire_life = this.tire_life;
 	}
 	
-	public boolean accelerate(float desired_speed)
+	public void accelerate(float desired_speed)
 	{
-		boolean feedback = false;
 		float speed = (desired_speed<this.top_speed)?desired_speed:this.top_speed;
 		
 		if((this.c_speed + this.acc) <= speed)
@@ -73,30 +74,25 @@ public class Car {
 		
 		this.c_tire_life--;
 		this.fuel-=this.fuel_consumption;
-		
-		if(this.fuel < 100/5 || this.c_tire_life < this.tire_life/4)
-		{
-			feedback = true;
-		}
-		
-		return feedback;
 	}
 	
-	public boolean brake(float desired_speed)
+	public void brake(float desired_speed)
 	{
-		boolean feedback = false;
-		
 		this.c_speed = desired_speed;
 		
 		this.c_tire_life-=10;
 		this.fuel-=this.fuel_consumption/2;
-		
+	}
+	
+	public boolean feedback()
+	{
+		boolean fdb = false;
 		if(this.fuel < 100/5 || this.c_tire_life < this.tire_life/4)
 		{
-			feedback = true;
+			fdb = true;
 		}
-		
-		return feedback;
+	
+		return fdb;
 	}
 	
 	public int get_id()

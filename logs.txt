@@ -1,8 +1,0 @@
-
-New logging session at: 2022-03-30T16:27:20.442629700Z
-
-2022-03-30T16:27:20.452632300Z
-WARNING--java.lang.ArithmeticException: / by zero
-
-2022-03-30T16:27:20.456633500Z
-INFO--Reading from file.
