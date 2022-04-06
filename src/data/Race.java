@@ -13,10 +13,10 @@ public class Race {
 	
 	private Vector<Pilot> pilots;
 	private Map race_map;
-	private int no_cars;
-	private Vector<Integer> car_loops;
-	private Vector<Coordinates> cars_co;
-	private Vector<Coordinates> cars_last_co;
+	private int no_pilots;
+	private Vector<Integer> pilot_loops;
+	private Vector<Coordinates> pilot_co;
+	private Vector<Coordinates> pilot_last_co;
 	private Coordinates start_line;
 	
 	private Vector<Instant> preTime;
@@ -28,9 +28,9 @@ public class Race {
 		this.preTime = new Vector<Instant>(0);
 		this.race_map = map;
 		this.pilots =  new Vector<Pilot>(0);
-		this.car_loops = new Vector<Integer>(0);
-		this.cars_co = new Vector<Coordinates>(0);		
-		this.cars_last_co = new Vector<Coordinates>(0);
+		this.pilot_loops = new Vector<Integer>(0);
+		this.pilot_co = new Vector<Coordinates>(0);		
+		this.pilot_last_co = new Vector<Coordinates>(0);
 		this.start_line = map.get_start_line();
 		this.loops = no_loops;
 		
@@ -44,12 +44,12 @@ public class Race {
 		if(this.c_p <= this.max_p)
 		{
 			this.pilots.add(pilot);
-			this.cars_co.add(new Coordinates(this.start_line.x,this.start_line.y));
-			this.cars_last_co.add(new Coordinates(this.start_line.x,this.start_line.y - 1));
-			this.car_loops.add(0);
+			this.pilot_co.add(new Coordinates(this.start_line.x,this.start_line.y - this.c_p - 1));
+			this.pilot_last_co.add(new Coordinates(this.start_line.x,this.start_line.y - this.c_p - 2));
+			this.pilot_loops.add(0);
 			this.preTime.add(null);
 			c_p++;
-			this.no_cars = this.c_p;
+			this.no_pilots = this.c_p;
 		}
 		else
 		{
@@ -62,14 +62,17 @@ public class Race {
 	//starts the race
 	public ScoreBoard start_race()
 	{
-		for(int i=0;i<this.no_cars;i++)
+		for(int i=0;i<this.no_pilots;i++)
 		{
 			this.preTime.set(i, Instant.now());
 		}
 		ScoreBoard score = new ScoreBoard();
+		
+		Logger.get_instance().write(Level.DEBUG, "Start line " + this.start_line.x + " " + this.start_line.y);
+		
 		while(!pilots.isEmpty())
 		{
-			for(int i=0;i<this.no_cars;i++)
+			for(int i=0;i<this.no_pilots;i++)
 			{
 				Instant end = Instant.now();
 				Duration crTime = Duration.between(preTime.get(i), end);
@@ -78,27 +81,27 @@ public class Race {
 				if(millis >= ((this.pilots.get(i).get_car_details().get_c_speed()==0)?0:(long)1000/this.pilots.get(i).get_car_details().get_c_speed()))
 				{
 					preTime.set(i, end);
-					float speed = this.race_map.map_data(this.cars_co.get(i).x, this.cars_co.get(i).y,1);
+					float speed = this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y,1);
 					
-					int next = this.pilots.get(i).make_decision(speed, (int)this.race_map.map_data(this.cars_co.get(i).x, this.cars_co.get(i).y, 0));
+					int next = this.pilots.get(i).make_decision(speed, (int)this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y, 0));
 					
 					this.calculates_on_x(i, next);
 					this.calculates_on_y(i, next);
 		
-					if(this.cars_co.get(i).x==start_line.x && this.cars_co.get(i).y==start_line.y)
+					if(this.pilot_co.get(i).x==start_line.x && this.pilot_co.get(i).y==start_line.y)
 					{
-						car_loops.set(i,car_loops.get(i)+1);
+						pilot_loops.set(i,pilot_loops.get(i)+1);
 					}
 					
 					
 					//test
-					Logger.get_instance().write(Level.DEBUG, this.pilots.get(i).get_car_details().get_c_speed() + " at x " + this.cars_co.get(i).x + " y " + this.cars_co.get(i).y);
+					Logger.get_instance().write(Level.DEBUG,this.pilots.get(i).get_name() + " with " + this.pilots.get(i).get_car_details().get_c_speed() + " at x " + this.pilot_co.get(i).x + " y " + this.pilot_co.get(i).y);
 					
-					if(car_loops.get(i)==this.loops)
+					if(pilot_loops.get(i)>this.loops)
 					{
 						score.place_participant(this.pilots.get(i));
 						this.pilots.removeElementAt(i);
-						this.no_cars--;
+						this.no_pilots--;
 					}
 				}
 			}
@@ -110,27 +113,27 @@ public class Race {
 	{
 		boolean stop = true;
 		//calculates position on x axis 
-		for(int x=cars_co.get(i).x-1;x<=this.cars_co.get(i).x+1 && stop;x++)
+		for(int x=pilot_co.get(i).x-1;x<=this.pilot_co.get(i).x+1 && stop;x++)
 		{
-			if(((x!=this.cars_last_co.get(i).x || this.race_map.map_data(this.cars_co.get(i).x, this.cars_co.get(i).y, 0)==2) && (x!=this.cars_co.get(i).x)))
+			if(((x!=this.pilot_last_co.get(i).x || this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y, 0)==2) && (x!=this.pilot_co.get(i).x)))
 			{
-				if(this.race_map.map_data(x, this.cars_co.get(i).y, 0)==next)
+				if(this.race_map.map_data(x, this.pilot_co.get(i).y, 0)==next)
 				{
-					this.cars_last_co.get(i).x=this.cars_co.get(i).x;
-					this.cars_last_co.get(i).y=this.cars_co.get(i).y;
+					this.pilot_last_co.get(i).x=this.pilot_co.get(i).x;
+					this.pilot_last_co.get(i).y=this.pilot_co.get(i).y;
 				
-					this.cars_co.get(i).x=x;
+					this.pilot_co.get(i).x=x;
 				
 					stop = false;
 				}
 				else
 				{
-					if(this.race_map.map_data(x, this.cars_co.get(i).y, 0)==1)
+					if(this.race_map.map_data(x, this.pilot_co.get(i).y, 0)==1)
 					{
-						this.cars_last_co.get(i).x=this.cars_co.get(i).x;
+						this.pilot_last_co.get(i).x=this.pilot_co.get(i).x;
 						//this.cars_last_co[i].y=this.cars_co[i].y;
 					
-						this.cars_co.get(i).x=x;
+						this.pilot_co.get(i).x=x;
 					
 						stop = false;
 					}
@@ -143,27 +146,27 @@ public class Race {
 	{
 		boolean stop = true;
 		//calculates position on y axis
-		for(int y=cars_co.get(i).y-1;y<=cars_co.get(i).y+1 && stop;y++)
+		for(int y=pilot_co.get(i).y-1;y<=pilot_co.get(i).y+1 && stop;y++)
 		{
-			if((y!=this.cars_last_co.get(i).y || this.race_map.map_data(this.cars_co.get(i).x, this.cars_co.get(i).y, 0)==2) && (y!=this.cars_co.get(i).y))
+			if((y!=this.pilot_last_co.get(i).y || this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y, 0)==2) && (y!=this.pilot_co.get(i).y))
 			{
-				if(this.race_map.map_data(this.cars_co.get(i).x, y, 0)==next)
+				if(this.race_map.map_data(this.pilot_co.get(i).x, y, 0)==next)
 				{
-					this.cars_last_co.get(i).x=this.cars_co.get(i).x;
-					this.cars_last_co.get(i).y=this.cars_co.get(i).y;
+					this.pilot_last_co.get(i).x=this.pilot_co.get(i).x;
+					this.pilot_last_co.get(i).y=this.pilot_co.get(i).y;
 					
-					this.cars_co.get(i).y=y;
+					this.pilot_co.get(i).y=y;
 				
 					stop = false;
 				}
 				else
 				{
-					if(this.race_map.map_data(this.cars_co.get(i).x, y, 0)==1)
+					if(this.race_map.map_data(this.pilot_co.get(i).x, y, 0)==1)
 					{
 						//this.cars_last_co[i].x=this.cars_co[i].x;
-						this.cars_last_co.get(i).y=this.cars_co.get(i).y;
+						this.pilot_last_co.get(i).y=this.pilot_co.get(i).y;
 						
-						this.cars_co.get(i).y=y;
+						this.pilot_co.get(i).y=y;
 					
 						stop = false;
 					}
