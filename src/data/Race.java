@@ -4,6 +4,9 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Vector;
 import logging.*;
+import map.Coordinates;
+import map.Map;
+import gui.Window;
 
 public class Race {
 	
@@ -25,6 +28,8 @@ public class Race {
 	
 	private ScoreBoard Scoreboard = null;
 	
+	private Window main_window;
+	
 	public Race(Map map,int no_loops)
 	{
 		this.Scoreboard = new ScoreBoard();
@@ -37,6 +42,11 @@ public class Race {
 		this.start_line = map.get_start_line();
 		this.loops = no_loops;
 		
+	}
+	
+	public void set_window(Window window)
+	{
+		this.main_window = window;
 	}
 	
 	//returns true when full, otherwise false
@@ -68,6 +78,7 @@ public class Race {
 		for(int i=0;i<this.no_pilots;i++)
 		{
 			this.preTime.set(i, Instant.now());
+			this.main_window.add_car(this.pilot_co.get(i).x, this.pilot_co.get(i).y);
 		}
 		
 		Logger.get_instance().write(Level.DEBUG, "Start line " + this.start_line.x + " " + this.start_line.y);
@@ -90,9 +101,19 @@ public class Race {
 					
 					int next = this.pilots.get(i).make_decision(speed, tile);
 					
-					this.calculates_on_x(i, next);
-					this.calculates_on_y(i, next);
+					if(this.calculates_on_x(i, next) == 0)
+					{
+						if(this.calculates_on_y(i, next) == 0)
+						{
+							
+							this.pilots.remove(i);
+							this.main_window.dispose(i);
+							continue;
+						}
+					}
 		
+					main_window.set_co(this.pilot_co.get(i).x, this.pilot_co.get(i).y,i);
+					
 					if(this.pilot_co.get(i).x==start_line.x && this.pilot_co.get(i).y==start_line.y)
 					{
 						pilot_loops.set(i,pilot_loops.get(i)+1);
@@ -107,14 +128,16 @@ public class Race {
 						this.Scoreboard.place_participant(this.pilots.get(i));
 						this.pilots.removeElementAt(i);
 						this.no_pilots--;
+						this.main_window.dispose(i);
 					}
 				}
 			}
 		}
 	}
 	
-	private void calculates_on_x(int i,int next)
+	private int calculates_on_x(int i,int next)
 	{
+		int ret = 0;
 		boolean stop = true;
 		//calculates position on x axis 
 		for(int x=pilot_co.get(i).x-1;x<=this.pilot_co.get(i).x+1 && stop;x++)
@@ -127,7 +150,7 @@ public class Race {
 					this.pilot_last_co.get(i).y=this.pilot_co.get(i).y;
 				
 					this.pilot_co.get(i).x=x;
-				
+					ret = 1;
 					stop = false;
 				}
 				else
@@ -139,15 +162,18 @@ public class Race {
 					
 						this.pilot_co.get(i).x=x;
 					
+						ret = 1;
 						stop = false;
 					}
 				}
 			}
 		}
+		return ret;
 	}
 	
-	private void calculates_on_y(int i, int next)
+	private int calculates_on_y(int i, int next)
 	{
+		int ret = 0; 
 		boolean stop = true;
 		//calculates position on y axis
 		for(int y=pilot_co.get(i).y-1;y<=pilot_co.get(i).y+1 && stop;y++)
@@ -161,6 +187,7 @@ public class Race {
 					
 					this.pilot_co.get(i).y=y;
 				
+					ret = 1;
 					stop = false;
 				}
 				else
@@ -172,11 +199,18 @@ public class Race {
 						
 						this.pilot_co.get(i).y=y;
 					
+						ret = 1;
 						stop = false;
 					}
 				}
 			}
 		}
+		return ret;
+	}
+	
+	public Map get_map()
+	{
+		return this.race_map;
 	}
 	
 	public ScoreBoard get_score()

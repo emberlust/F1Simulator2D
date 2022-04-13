@@ -1,13 +1,21 @@
-package data;
+package map;
 
 public class Map {
 	private float[][][] map_matrix;
 	private int map_size;
 	private Coordinates start_line;
 	
-	public Map()
+	public Map(MapBuilder mb)
 	{
-		
+		this.map_size = mb.size;
+		if(mb.init == true)
+		{
+			this.init_map(map_size);
+			if(mb.generate == true)
+			{
+				this.generate_simple_path();
+			}
+		}
 	}
 	
 	public void init_map(int size)
@@ -71,6 +79,11 @@ public class Map {
 	public Coordinates get_start_line()
 	{
 		return this.start_line;
+	}
+	
+	public int get_size()
+	{
+		return this.map_size;
 	}
 	
 	public float map_data(int x, int y, int z)

@@ -1,9 +1,12 @@
+import car.CarFactory;
 import data.DataHandler;
-import data.Map;
 import data.Pilot;
 import data.Race;
 import data.ScoreBoard;
-import data.MapFactory;
+import map.Map;
+import map.MapBuilder;
+import gui.Window;
+import car.Car;
 
 public class F1Application {
 
@@ -11,21 +14,32 @@ public class F1Application {
 		
 		ScoreBoard score = null;
 		
-		MapFactory map_f = new MapFactory();
 		
-		Map race_map = map_f.get_small_map();
+		CarFactory cf = new CarFactory();
 		
 		Pilot[] pilots = new Pilot[2];
 		
-		pilots[0] = new Pilot();
-		pilots[1] = new Pilot();
+		pilots[0] = new Pilot("gigel",new Car(1,10,0,999,1),"Mercedes");
+		pilots[1] = new Pilot("ionica",new Car(2,5,0,999,1),"Redbull");
+		
+		Map race_map = new MapBuilder()
+				.set_size(20)
+				.init(true)
+				.generate(true)
+				.get();
 		
 		Race f1 = new Race(race_map,1);
 		f1.place_participant(pilots[0]);
 		f1.place_participant(pilots[1]);
-		f1.start_race();
+		
+	   Window window = new Window(f1);
+		
+	    
+
+		//f1.start_race();
 		
 		score = f1.get_score();
+		
 		
 		//score = DataHandler.pull_data();
 		//DataHandler.push_data(score);

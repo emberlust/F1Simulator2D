@@ -1,10 +1,13 @@
 package data;
 
+import car.Car;
+
 public class Pilot {
 	
 	
 	private String name;
 	private Car car;
+	private String team;
 	
 	public Pilot()
 	{
@@ -12,13 +15,14 @@ public class Pilot {
 		this.name = "Pilot" + this.car.get_id();
 	}
 	
-	public Pilot(String name, Car car)
+	public Pilot(String name, Car car, String team)
 	{
 		this.name = name;
 		if(car != null)
 		{
 			this.car = car;
 		}
+		this.team = team;
 	}
 	
 	public String get_name()
@@ -29,6 +33,11 @@ public class Pilot {
 	public Car get_car_details()
 	{
 		return this.car;
+	}
+	
+	public String get_team()
+	{
+		return this.team;
 	}
 	
 	public int make_decision(float speed, int road_tipe)

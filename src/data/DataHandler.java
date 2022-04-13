@@ -61,7 +61,7 @@ public class DataHandler {
 			if(node.getNodeType() == Node.ELEMENT_NODE)
 			{
 				Element element = (Element) node;
-			    score.place_participant(new Pilot(element.getElementsByTagName("name").item(0).getTextContent(),null),Integer.parseInt(element.getElementsByTagName("points").item(0).getTextContent()));
+			    score.place_participant(new Pilot(element.getElementsByTagName("name").item(0).getTextContent(),null,null),Integer.parseInt(element.getElementsByTagName("points").item(0).getTextContent()));
 			    	
 			}
 		}

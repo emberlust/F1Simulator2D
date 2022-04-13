@@ -1,19 +1,19 @@
-package data;
+package car;
 
 import java.util.Random;
 
 public class Car {
 	
-	private int id;
+	protected int id;
 	
-	private float top_speed;
-	private float fuel_consumption;
-	private float tire_life;
-	private float acc;
+	protected float top_speed;
+	protected float fuel_consumption;
+	protected float tire_life;
+	protected float acc;
 	
-	private float c_speed;
-	private float fuel;
-	private float c_tire_life;
+	protected float c_speed;
+	protected float fuel;
+	protected float c_tire_life;
 	
 	public Car()//test car
 	{
