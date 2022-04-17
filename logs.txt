@@ -2751,3 +2751,689 @@ DEBUG--gheorge with 6.0 at x 2 y 6
 
 2022-04-17T09:22:53.393564500Z
 DEBUG--gheorge with 6.0 at x 2 y 5
+
+New logging session at: 2022-04-17T20:51:14.345309400Z
+
+2022-04-17T20:51:14.365309200Z
+DEBUG--Start line 2 10
+
+2022-04-17T20:51:14.367310800Z
+DEBUG--gigel with 1.0 at x 2 y 10
+
+2022-04-17T20:51:14.368309900Z
+DEBUG--ionica with 1.0 at x 2 y 9
+
+2022-04-17T20:51:14.368309900Z
+DEBUG--gheorge with 1.0 at x 2 y 8
+
+2022-04-17T20:51:14.368309900Z
+DEBUG--costica with 20.5 at x 2 y 7
+
+2022-04-17T20:51:14.417310800Z
+DEBUG--costica with 41.0 at x 2 y 8
+
+2022-04-17T20:51:14.443309800Z
+DEBUG--costica with 61.5 at x 2 y 9
+
+2022-04-17T20:51:14.460311100Z
+DEBUG--costica with 82.0 at x 2 y 10
+
+2022-04-17T20:51:14.473314100Z
+DEBUG--costica with 102.5 at x 2 y 11
+
+2022-04-17T20:51:14.484309500Z
+DEBUG--costica with 120.0 at x 2 y 12
+
+2022-04-17T20:51:14.493313400Z
+DEBUG--costica with 120.0 at x 2 y 13
+
+2022-04-17T20:51:14.502316700Z
+DEBUG--costica with 120.0 at x 2 y 14
+
+2022-04-17T20:51:14.511320400Z
+DEBUG--costica with 120.0 at x 2 y 15
+
+2022-04-17T20:51:14.521308900Z
+DEBUG--costica with 120.0 at x 2 y 16
+
+2022-04-17T20:51:14.531307400Z
+DEBUG--costica with 120.0 at x 2 y 17
+
+2022-04-17T20:51:14.540313Z
+DEBUG--costica with 50.0 at x 3 y 17
+
+2022-04-17T20:51:14.561307200Z
+DEBUG--costica with 70.5 at x 4 y 17
+
+2022-04-17T20:51:14.576464900Z
+DEBUG--costica with 91.0 at x 5 y 17
+
+2022-04-17T20:51:14.588433700Z
+DEBUG--costica with 111.5 at x 6 y 17
+
+2022-04-17T20:51:14.597436300Z
+DEBUG--costica with 120.0 at x 7 y 17
+
+2022-04-17T20:51:14.606474Z
+DEBUG--costica with 120.0 at x 8 y 17
+
+2022-04-17T20:51:14.616468300Z
+DEBUG--costica with 120.0 at x 9 y 17
+
+2022-04-17T20:51:14.625473900Z
+DEBUG--costica with 120.0 at x 10 y 17
+
+2022-04-17T20:51:14.635433800Z
+DEBUG--costica with 120.0 at x 11 y 17
+
+2022-04-17T20:51:14.644464400Z
+DEBUG--costica with 120.0 at x 12 y 17
+
+2022-04-17T20:51:14.653468300Z
+DEBUG--costica with 120.0 at x 13 y 17
+
+2022-04-17T20:51:14.663394100Z
+DEBUG--costica with 120.0 at x 14 y 17
+
+2022-04-17T20:51:14.673363100Z
+DEBUG--costica with 120.0 at x 15 y 17
+
+2022-04-17T20:51:14.682393600Z
+DEBUG--costica with 120.0 at x 16 y 17
+
+2022-04-17T20:51:14.692398400Z
+DEBUG--costica with 120.0 at x 17 y 17
+
+2022-04-17T20:51:14.702394Z
+DEBUG--costica with 120.0 at x 17 y 16
+
+2022-04-17T20:51:14.712394400Z
+DEBUG--costica with 50.0 at x 17 y 15
+
+2022-04-17T20:51:14.732435900Z
+DEBUG--costica with 70.5 at x 17 y 14
+
+2022-04-17T20:51:14.748406Z
+DEBUG--costica with 91.0 at x 17 y 13
+
+2022-04-17T20:51:14.759406200Z
+DEBUG--costica with 111.5 at x 17 y 12
+
+2022-04-17T20:51:14.769405300Z
+DEBUG--costica with 120.0 at x 17 y 11
+
+2022-04-17T20:51:14.778405500Z
+DEBUG--costica with 120.0 at x 17 y 10
+
+2022-04-17T20:51:14.788404700Z
+DEBUG--costica with 120.0 at x 17 y 9
+
+2022-04-17T20:51:14.798405300Z
+DEBUG--costica with 120.0 at x 17 y 8
+
+2022-04-17T20:51:14.808404300Z
+DEBUG--costica with 120.0 at x 17 y 7
+
+2022-04-17T20:51:14.817462500Z
+DEBUG--costica with 120.0 at x 17 y 6
+
+2022-04-17T20:51:14.826418100Z
+DEBUG--costica with 120.0 at x 17 y 5
+
+2022-04-17T20:51:14.836416900Z
+DEBUG--costica with 120.0 at x 17 y 4
+
+2022-04-17T20:51:14.846419800Z
+DEBUG--costica with 120.0 at x 17 y 3
+
+2022-04-17T20:51:14.855446900Z
+DEBUG--costica with 120.0 at x 17 y 2
+
+2022-04-17T20:51:15.366025500Z
+DEBUG--gigel with 2.0 at x 2 y 11
+
+2022-04-17T20:51:15.367993600Z
+DEBUG--ionica with 2.0 at x 2 y 10
+
+2022-04-17T20:51:15.369025400Z
+DEBUG--gheorge with 2.0 at x 2 y 9
+
+2022-04-17T20:51:15.866507900Z
+DEBUG--gigel with 3.0 at x 2 y 12
+
+2022-04-17T20:51:15.868507900Z
+DEBUG--ionica with 3.0 at x 2 y 11
+
+2022-04-17T20:51:15.869509800Z
+DEBUG--gheorge with 3.0 at x 2 y 10
+
+2022-04-17T20:51:16.201054Z
+DEBUG--gigel with 4.0 at x 2 y 13
+
+2022-04-17T20:51:16.203053300Z
+DEBUG--ionica with 4.0 at x 2 y 12
+
+2022-04-17T20:51:16.204053Z
+DEBUG--gheorge with 4.0 at x 2 y 11
+
+2022-04-17T20:51:16.451063200Z
+DEBUG--gigel with 5.0 at x 2 y 14
+
+2022-04-17T20:51:16.454061Z
+DEBUG--ionica with 5.0 at x 2 y 13
+
+2022-04-17T20:51:16.454061Z
+DEBUG--gheorge with 5.0 at x 2 y 12
+
+2022-04-17T20:51:16.652058Z
+DEBUG--gigel with 6.0 at x 2 y 15
+
+2022-04-17T20:51:16.654055600Z
+DEBUG--ionica with 5.0 at x 2 y 14
+
+2022-04-17T20:51:16.655055500Z
+DEBUG--gheorge with 6.0 at x 2 y 13
+
+2022-04-17T20:51:16.820056900Z
+DEBUG--gigel with 7.0 at x 2 y 16
+
+2022-04-17T20:51:16.822069Z
+DEBUG--gheorge with 6.0 at x 2 y 14
+
+2022-04-17T20:51:16.854057400Z
+DEBUG--ionica with 5.0 at x 2 y 15
+
+2022-04-17T20:51:16.964055600Z
+DEBUG--gigel with 8.0 at x 2 y 17
+
+2022-04-17T20:51:16.990055300Z
+DEBUG--gheorge with 6.0 at x 2 y 15
+
+2022-04-17T20:51:17.055062Z
+DEBUG--ionica with 5.0 at x 2 y 16
+
+2022-04-17T20:51:17.090056200Z
+DEBUG--gigel with 9.0 at x 3 y 17
+
+2022-04-17T20:51:17.157057600Z
+DEBUG--gheorge with 6.0 at x 2 y 16
+
+2022-04-17T20:51:17.202056600Z
+DEBUG--gigel with 10.0 at x 4 y 17
+
+2022-04-17T20:51:17.256054Z
+DEBUG--ionica with 5.0 at x 2 y 17
+
+2022-04-17T20:51:17.303056200Z
+DEBUG--gigel with 10.0 at x 5 y 17
+
+2022-04-17T20:51:17.324068400Z
+DEBUG--gheorge with 6.0 at x 2 y 17
+
+2022-04-17T20:51:17.403066Z
+DEBUG--gigel with 10.0 at x 6 y 17
+
+2022-04-17T20:51:17.456078200Z
+DEBUG--ionica with 5.0 at x 3 y 17
+
+2022-04-17T20:51:17.491078200Z
+DEBUG--gheorge with 6.0 at x 3 y 17
+
+2022-04-17T20:51:17.503078600Z
+DEBUG--gigel with 10.0 at x 7 y 17
+
+2022-04-17T20:51:17.603087400Z
+DEBUG--gigel with 10.0 at x 8 y 17
+
+2022-04-17T20:51:17.656087600Z
+DEBUG--ionica with 5.0 at x 4 y 17
+
+2022-04-17T20:51:17.658088900Z
+DEBUG--gheorge with 6.0 at x 4 y 17
+
+2022-04-17T20:51:17.703087500Z
+DEBUG--gigel with 10.0 at x 9 y 17
+
+2022-04-17T20:51:17.803135800Z
+DEBUG--gigel with 10.0 at x 10 y 17
+
+2022-04-17T20:51:17.825135800Z
+DEBUG--gheorge with 6.0 at x 5 y 17
+
+2022-04-17T20:51:17.856136100Z
+DEBUG--ionica with 5.0 at x 5 y 17
+
+2022-04-17T20:51:17.903136Z
+DEBUG--gigel with 10.0 at x 11 y 17
+
+2022-04-17T20:51:17.992299600Z
+DEBUG--gheorge with 6.0 at x 6 y 17
+
+2022-04-17T20:51:18.003299700Z
+DEBUG--gigel with 10.0 at x 12 y 17
+
+2022-04-17T20:51:18.056784900Z
+DEBUG--ionica with 5.0 at x 6 y 17
+
+2022-04-17T20:51:18.103782900Z
+DEBUG--gigel with 10.0 at x 13 y 17
+
+2022-04-17T20:51:18.159477Z
+DEBUG--gheorge with 6.0 at x 7 y 17
+
+2022-04-17T20:51:18.204512200Z
+DEBUG--gigel with 10.0 at x 14 y 17
+
+2022-04-17T20:51:18.257510400Z
+DEBUG--ionica with 5.0 at x 7 y 17
+
+2022-04-17T20:51:18.305491Z
+DEBUG--gigel with 10.0 at x 15 y 17
+
+2022-04-17T20:51:18.327475500Z
+DEBUG--gheorge with 6.0 at x 8 y 17
+
+2022-04-17T20:51:18.489536400Z
+DEBUG--gigel with 10.0 at x 16 y 17
+
+2022-04-17T20:51:18.489536400Z
+DEBUG--ionica with 5.0 at x 8 y 17
+
+2022-04-17T20:51:18.494540600Z
+DEBUG--gheorge with 6.0 at x 9 y 17
+
+2022-04-17T20:51:18.506541100Z
+DEBUG--gigel with 10.0 at x 17 y 17
+
+2022-04-17T20:51:18.607076800Z
+DEBUG--gigel with 10.0 at x 17 y 16
+
+2022-04-17T20:51:18.662076100Z
+DEBUG--gheorge with 6.0 at x 10 y 17
+
+2022-04-17T20:51:18.690108200Z
+DEBUG--ionica with 5.0 at x 9 y 17
+
+2022-04-17T20:51:18.707945800Z
+DEBUG--gigel with 10.0 at x 17 y 15
+
+2022-04-17T20:51:18.807971900Z
+DEBUG--gigel with 10.0 at x 17 y 14
+
+2022-04-17T20:51:18.829943900Z
+DEBUG--gheorge with 6.0 at x 11 y 17
+
+2022-04-17T20:51:18.890977100Z
+DEBUG--ionica with 5.0 at x 10 y 17
+
+2022-04-17T20:51:18.907974600Z
+DEBUG--gigel with 10.0 at x 17 y 13
+
+2022-04-17T20:51:18.997639900Z
+DEBUG--gheorge with 6.0 at x 12 y 17
+
+2022-04-17T20:51:19.008640Z
+DEBUG--gigel with 10.0 at x 17 y 12
+
+2022-04-17T20:51:19.091643700Z
+DEBUG--ionica with 5.0 at x 11 y 17
+
+2022-04-17T20:51:19.108642600Z
+DEBUG--gigel with 10.0 at x 17 y 11
+
+2022-04-17T20:51:19.165643200Z
+DEBUG--gheorge with 6.0 at x 13 y 17
+
+2022-04-17T20:51:19.209640200Z
+DEBUG--gigel with 10.0 at x 17 y 10
+
+2022-04-17T20:51:19.292639900Z
+DEBUG--ionica with 5.0 at x 12 y 17
+
+2022-04-17T20:51:19.309643800Z
+DEBUG--gigel with 10.0 at x 17 y 9
+
+2022-04-17T20:51:19.333639800Z
+DEBUG--gheorge with 6.0 at x 14 y 17
+
+2022-04-17T20:51:19.410640800Z
+DEBUG--gigel with 10.0 at x 17 y 8
+
+2022-04-17T20:51:19.492640800Z
+DEBUG--ionica with 5.0 at x 13 y 17
+
+2022-04-17T20:51:19.501636900Z
+DEBUG--gheorge with 6.0 at x 15 y 17
+
+2022-04-17T20:51:19.511607900Z
+DEBUG--gigel with 10.0 at x 17 y 7
+
+2022-04-17T20:51:19.611642800Z
+DEBUG--gigel with 10.0 at x 17 y 6
+
+2022-04-17T20:51:19.668640500Z
+DEBUG--gheorge with 6.0 at x 16 y 17
+
+2022-04-17T20:51:19.692643300Z
+DEBUG--ionica with 5.0 at x 14 y 17
+
+2022-04-17T20:51:19.712639700Z
+DEBUG--gigel with 10.0 at x 17 y 5
+
+2022-04-17T20:51:19.813607400Z
+DEBUG--gigel with 10.0 at x 17 y 4
+
+2022-04-17T20:51:19.836605600Z
+DEBUG--gheorge with 6.0 at x 17 y 17
+
+2022-04-17T20:51:19.893024900Z
+DEBUG--ionica with 5.0 at x 15 y 17
+
+2022-04-17T20:51:19.914025Z
+DEBUG--gigel with 10.0 at x 17 y 3
+
+2022-04-17T20:51:20.004025100Z
+DEBUG--gheorge with 6.0 at x 17 y 16
+
+2022-04-17T20:51:20.014026300Z
+DEBUG--gigel with 10.0 at x 17 y 2
+
+2022-04-17T20:51:20.093025200Z
+DEBUG--ionica with 5.0 at x 16 y 17
+
+2022-04-17T20:51:20.114026600Z
+DEBUG--gigel with 10.0 at x 16 y 2
+
+2022-04-17T20:51:20.171025300Z
+DEBUG--gheorge with 6.0 at x 17 y 15
+
+2022-04-17T20:51:20.215025100Z
+DEBUG--gigel with 10.0 at x 15 y 2
+
+2022-04-17T20:51:20.294025400Z
+DEBUG--ionica with 5.0 at x 17 y 17
+
+2022-04-17T20:51:20.315025200Z
+DEBUG--gigel with 10.0 at x 14 y 2
+
+2022-04-17T20:51:20.338025400Z
+DEBUG--gheorge with 6.0 at x 17 y 14
+
+2022-04-17T20:51:20.415025200Z
+DEBUG--gigel with 10.0 at x 13 y 2
+
+2022-04-17T20:51:20.494025700Z
+DEBUG--ionica with 5.0 at x 17 y 16
+
+2022-04-17T20:51:20.506025100Z
+DEBUG--gheorge with 6.0 at x 17 y 13
+
+2022-04-17T20:51:20.516025100Z
+DEBUG--gigel with 10.0 at x 12 y 2
+
+2022-04-17T20:51:20.616056600Z
+DEBUG--gigel with 10.0 at x 11 y 2
+
+2022-04-17T20:51:20.673057300Z
+DEBUG--gheorge with 6.0 at x 17 y 12
+
+2022-04-17T20:51:20.694057100Z
+DEBUG--ionica with 5.0 at x 17 y 15
+
+2022-04-17T20:51:20.717056400Z
+DEBUG--gigel with 10.0 at x 10 y 2
+
+2022-04-17T20:51:20.817057Z
+DEBUG--gigel with 10.0 at x 9 y 2
+
+2022-04-17T20:51:20.841057100Z
+DEBUG--gheorge with 6.0 at x 17 y 11
+
+2022-04-17T20:51:20.894060Z
+DEBUG--ionica with 5.0 at x 17 y 14
+
+2022-04-17T20:51:20.917059500Z
+DEBUG--gigel with 10.0 at x 8 y 2
+
+2022-04-17T20:51:21.008057100Z
+DEBUG--gheorge with 6.0 at x 17 y 10
+
+2022-04-17T20:51:21.018024500Z
+DEBUG--gigel with 10.0 at x 7 y 2
+
+2022-04-17T20:51:21.095059200Z
+DEBUG--ionica with 5.0 at x 17 y 13
+
+2022-04-17T20:51:21.118024700Z
+DEBUG--gigel with 10.0 at x 6 y 2
+
+2022-04-17T20:51:21.176038500Z
+DEBUG--gheorge with 6.0 at x 17 y 9
+
+2022-04-17T20:51:21.218038700Z
+DEBUG--gigel with 10.0 at x 5 y 2
+
+2022-04-17T20:51:21.295071300Z
+DEBUG--ionica with 5.0 at x 17 y 12
+
+2022-04-17T20:51:21.318069800Z
+DEBUG--gigel with 10.0 at x 4 y 2
+
+2022-04-17T20:51:21.343065Z
+DEBUG--gheorge with 6.0 at x 17 y 8
+
+2022-04-17T20:51:21.419038600Z
+DEBUG--gigel with 10.0 at x 3 y 2
+
+2022-04-17T20:51:21.496070300Z
+DEBUG--ionica with 5.0 at x 17 y 11
+
+2022-04-17T20:51:21.511035800Z
+DEBUG--gheorge with 6.0 at x 17 y 7
+
+2022-04-17T20:51:21.520036Z
+DEBUG--gigel with 10.0 at x 2 y 2
+
+2022-04-17T20:51:21.620512Z
+DEBUG--gigel with 10.0 at x 2 y 3
+
+2022-04-17T20:51:21.678481400Z
+DEBUG--gheorge with 6.0 at x 17 y 6
+
+2022-04-17T20:51:21.696512700Z
+DEBUG--ionica with 5.0 at x 17 y 10
+
+2022-04-17T20:51:21.721480200Z
+DEBUG--gigel with 10.0 at x 2 y 4
+
+2022-04-17T20:51:21.821852500Z
+DEBUG--gigel with 10.0 at x 2 y 5
+
+2022-04-17T20:51:21.845884600Z
+DEBUG--gheorge with 6.0 at x 17 y 5
+
+2022-04-17T20:51:21.896850200Z
+DEBUG--ionica with 5.0 at x 17 y 9
+
+2022-04-17T20:51:21.921852600Z
+DEBUG--gigel with 10.0 at x 2 y 6
+
+2022-04-17T20:51:22.013852300Z
+DEBUG--gheorge with 6.0 at x 17 y 4
+
+2022-04-17T20:51:22.021852600Z
+DEBUG--gigel with 10.0 at x 2 y 7
+
+2022-04-17T20:51:22.096852200Z
+DEBUG--ionica with 5.0 at x 17 y 8
+
+2022-04-17T20:51:22.122852200Z
+DEBUG--gigel with 10.0 at x 2 y 8
+
+2022-04-17T20:51:22.181851300Z
+DEBUG--gheorge with 6.0 at x 17 y 3
+
+2022-04-17T20:51:22.222853100Z
+DEBUG--gigel with 10.0 at x 2 y 9
+
+2022-04-17T20:51:22.297853Z
+DEBUG--ionica with 5.0 at x 17 y 7
+
+2022-04-17T20:51:22.323852700Z
+DEBUG--gigel with 10.0 at x 2 y 10
+
+2022-04-17T20:51:22.465851300Z
+DEBUG--gheorge with 6.0 at x 17 y 2
+
+2022-04-17T20:51:22.527446600Z
+DEBUG--ionica with 5.0 at x 17 y 6
+
+2022-04-17T20:51:22.633493800Z
+DEBUG--gheorge with 6.0 at x 16 y 2
+
+2022-04-17T20:51:22.724372400Z
+DEBUG--ionica with 5.0 at x 17 y 5
+
+2022-04-17T20:51:22.801369800Z
+DEBUG--gheorge with 6.0 at x 15 y 2
+
+2022-04-17T20:51:22.925338200Z
+DEBUG--ionica with 5.0 at x 17 y 4
+
+2022-04-17T20:51:22.968436300Z
+DEBUG--gheorge with 6.0 at x 14 y 2
+
+2022-04-17T20:51:23.125436500Z
+DEBUG--ionica with 5.0 at x 17 y 3
+
+2022-04-17T20:51:23.135436900Z
+DEBUG--gheorge with 6.0 at x 13 y 2
+
+2022-04-17T20:51:23.302469300Z
+DEBUG--gheorge with 6.0 at x 12 y 2
+
+2022-04-17T20:51:23.325473600Z
+DEBUG--ionica with 5.0 at x 17 y 2
+
+2022-04-17T20:51:23.470470200Z
+DEBUG--gheorge with 6.0 at x 11 y 2
+
+2022-04-17T20:51:23.526464100Z
+DEBUG--ionica with 5.0 at x 16 y 2
+
+2022-04-17T20:51:23.638437Z
+DEBUG--gheorge with 6.0 at x 10 y 2
+
+2022-04-17T20:51:23.727435200Z
+DEBUG--ionica with 5.0 at x 15 y 2
+
+2022-04-17T20:51:23.806438300Z
+DEBUG--gheorge with 6.0 at x 9 y 2
+
+2022-04-17T20:51:24.738581700Z
+DEBUG--ionica with 5.0 at x 14 y 2
+
+2022-04-17T20:51:24.738581700Z
+DEBUG--gheorge with 6.0 at x 8 y 2
+
+2022-04-17T20:51:24.738581700Z
+DEBUG--ionica with 5.0 at x 13 y 2
+
+2022-04-17T20:51:24.905994300Z
+DEBUG--gheorge with 6.0 at x 7 y 2
+
+2022-04-17T20:51:24.938993900Z
+DEBUG--ionica with 5.0 at x 12 y 2
+
+2022-04-17T20:51:25.073993100Z
+DEBUG--gheorge with 6.0 at x 6 y 2
+
+2022-04-17T20:51:25.139993200Z
+DEBUG--ionica with 5.0 at x 11 y 2
+
+2022-04-17T20:51:25.240993700Z
+DEBUG--gheorge with 6.0 at x 5 y 2
+
+2022-04-17T20:51:25.340993Z
+DEBUG--ionica with 5.0 at x 10 y 2
+
+2022-04-17T20:51:25.408991700Z
+DEBUG--gheorge with 6.0 at x 4 y 2
+
+2022-04-17T20:51:25.541605800Z
+DEBUG--ionica with 5.0 at x 9 y 2
+
+2022-04-17T20:51:25.576571900Z
+DEBUG--gheorge with 6.0 at x 3 y 2
+
+2022-04-17T20:51:25.741903Z
+DEBUG--ionica with 5.0 at x 8 y 2
+
+2022-04-17T20:51:25.743932300Z
+DEBUG--gheorge with 6.0 at x 2 y 2
+
+2022-04-17T20:51:25.911455500Z
+DEBUG--gheorge with 6.0 at x 2 y 3
+
+2022-04-17T20:51:25.942489600Z
+DEBUG--ionica with 5.0 at x 7 y 2
+
+2022-04-17T20:51:26.078486900Z
+DEBUG--gheorge with 6.0 at x 2 y 4
+
+2022-04-17T20:51:26.142667800Z
+DEBUG--ionica with 5.0 at x 6 y 2
+
+2022-04-17T20:51:26.245671Z
+DEBUG--gheorge with 6.0 at x 2 y 5
+
+2022-04-17T20:51:26.343329Z
+DEBUG--ionica with 5.0 at x 5 y 2
+
+2022-04-17T20:51:26.413329Z
+DEBUG--gheorge with 6.0 at x 2 y 6
+
+2022-04-17T20:51:26.543362600Z
+DEBUG--ionica with 5.0 at x 4 y 2
+
+2022-04-17T20:51:26.584510300Z
+DEBUG--gheorge with 6.0 at x 2 y 7
+
+2022-04-17T20:51:26.744376500Z
+DEBUG--ionica with 5.0 at x 3 y 2
+
+2022-04-17T20:51:26.747393500Z
+DEBUG--gheorge with 6.0 at x 2 y 8
+
+2022-04-17T20:51:26.914400800Z
+DEBUG--gheorge with 6.0 at x 2 y 9
+
+2022-04-17T20:51:26.944400Z
+DEBUG--ionica with 5.0 at x 2 y 2
+
+2022-04-17T20:51:27.081632300Z
+DEBUG--gheorge with 6.0 at x 2 y 10
+
+2022-04-17T20:51:27.144673700Z
+DEBUG--ionica with 5.0 at x 2 y 3
+
+2022-04-17T20:51:27.345137600Z
+DEBUG--ionica with 5.0 at x 2 y 4
+
+2022-04-17T20:51:27.545160400Z
+DEBUG--ionica with 5.0 at x 2 y 5
+
+2022-04-17T20:51:27.745160600Z
+DEBUG--ionica with 5.0 at x 2 y 6
+
+2022-04-17T20:51:27.946151200Z
+DEBUG--ionica with 5.0 at x 2 y 7
+
+2022-04-17T20:51:28.146192200Z
+DEBUG--ionica with 5.0 at x 2 y 8
+
+2022-04-17T20:51:28.346197400Z
+DEBUG--ionica with 5.0 at x 2 y 9
+
+2022-04-17T20:51:28.546494700Z
+DEBUG--ionica with 5.0 at x 2 y 10
