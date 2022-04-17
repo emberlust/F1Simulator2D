@@ -60,7 +60,7 @@ public class Window {
 		int py =(int)(y*off1 + off2);
 		    
 		car.setLocation(px,py);
-		    
+		
 		frame.add(car,0);
 		
 		cars.add(car);
@@ -79,5 +79,6 @@ public class Window {
 	    int px =(int)(x*off1 + off2);
 	    int py =(int)(y*off1 + off2);
 	    cars.get(i).setLocation(px,py);
+	    
 	}
 }

@@ -4,7 +4,6 @@ public class Map {
 	private float[][][] map_matrix;
 	private int map_size;
 	private Coordinates start_line;
-	
 	public Map(MapBuilder mb)
 	{
 		this.map_size = mb.size;

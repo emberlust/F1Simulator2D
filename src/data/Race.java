@@ -107,7 +107,11 @@ public class Race {
 						{
 							
 							this.pilots.remove(i);
+							this.pilot_last_co.removeElementAt(i);
+							this.pilot_co.removeElementAt(i);
+							this.pilot_loops.removeElementAt(i);
 							this.main_window.dispose(i);
+							this.no_pilots--;
 							continue;
 						}
 					}
@@ -127,6 +131,9 @@ public class Race {
 					{
 						this.Scoreboard.place_participant(this.pilots.get(i));
 						this.pilots.removeElementAt(i);
+						this.pilot_last_co.removeElementAt(i);
+						this.pilot_co.removeElementAt(i);
+						this.pilot_loops.removeElementAt(i);
 						this.no_pilots--;
 						this.main_window.dispose(i);
 					}

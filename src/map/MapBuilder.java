@@ -11,6 +11,7 @@ public class MapBuilder {
 		this.size = size;
 		return this;
 	}
+	
 	public MapBuilder init(boolean init)
 	{
 		this.init = init;
@@ -21,7 +22,7 @@ public class MapBuilder {
 		this.generate = generate;
 		return this;
 	}
-	public Map get()
+	public Map build_map()
 	{
 		return new Map(this);
 	}
