@@ -98,13 +98,11 @@ public class DataHandler {
 		}
 		document.getDocumentElement().normalize();
 		
-		boolean found = false;
-		Element root = document.getDocumentElement();
-		Element parent = (Element) root.getElementsByTagName("pilots").item(0);
-		
 		for(int i = 0; i<score.get_no_participants();i++)
 		{
-			
+			boolean found = false;
+			Element root = document.getDocumentElement();
+			Element parent = (Element) root.getElementsByTagName("pilots").item(0);
 			NodeList data = parent.getElementsByTagName("pilot"); 
 			
 			for(int j = 0; j<data.getLength();j++)

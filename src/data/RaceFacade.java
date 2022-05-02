@@ -6,6 +6,7 @@ import gui.Window;
 import map.Map;
 import map.MapBuilder;
 
+
 public class RaceFacade {
 
 	private Race race;
