@@ -91,13 +91,13 @@ public class Race {
 				Duration crTime = Duration.between(preTime.get(i), end);
 				long millis = crTime.toMillis();
 				
-				if(millis >= ((this.pilots.get(i).get_car_details().get_c_speed()==0)?0:(long)1000/this.pilots.get(i).get_car_details().get_c_speed()))
+				if(millis >= ((this.pilots.get(i).get_car_details().get_c_speed()==0)?0:(long)100/this.pilots.get(i).get_car_details().get_c_speed()))
 				{
 					preTime.set(i, end);
 					
 					
-					float speed = this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y,1);
-					int tile = (int)this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y, 0);
+					float speed = this.race_map.map_data((int)this.pilot_co.get(i).x, (int)this.pilot_co.get(i).y,1);
+					int tile = (int)this.race_map.map_data((int)this.pilot_co.get(i).x, (int)this.pilot_co.get(i).y, 0);
 					
 					int next = this.pilots.get(i).make_decision(speed, tile);
 					
@@ -147,27 +147,30 @@ public class Race {
 		int ret = 0;
 		boolean stop = true;
 		//calculates position on x axis 
-		for(int x=pilot_co.get(i).x-1;x<=this.pilot_co.get(i).x+1 && stop;x++)
+		for(int x=(int)pilot_co.get(i).x-1;x<=(int)this.pilot_co.get(i).x+1 && stop;x++)
 		{
-			if(((x!=this.pilot_last_co.get(i).x || this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y, 0)==2) && (x!=this.pilot_co.get(i).x)))
+			if(((x!=this.pilot_last_co.get(i).x || this.race_map.map_data((int)this.pilot_co.get(i).x, (int)this.pilot_co.get(i).y, 0)==2) && (x!=this.pilot_co.get(i).x)))
 			{
-				if(this.race_map.map_data(x, this.pilot_co.get(i).y, 0)==next)
+				if(this.race_map.map_data(x, (int)this.pilot_co.get(i).y, 0)==next)
 				{
-					this.pilot_last_co.get(i).x=this.pilot_co.get(i).x;
-					this.pilot_last_co.get(i).y=this.pilot_co.get(i).y;
-				
-					this.pilot_co.get(i).x=x;
+					this.pilot_last_co.get(i).x=(int)this.pilot_co.get(i).x;				
+					this.pilot_co.get(i).x+=0.1;
 					ret = 1;
 					stop = false;
 				}
 				else
 				{
-					if(this.race_map.map_data(x, this.pilot_co.get(i).y, 0)==1)
+					if(this.race_map.map_data(x, (int)this.pilot_co.get(i).y, 0)==1)
 					{
-						this.pilot_last_co.get(i).x=this.pilot_co.get(i).x;
-						//this.cars_last_co[i].y=this.cars_co[i].y;
-					
-						this.pilot_co.get(i).x=x;
+						this.pilot_last_co.get(i).x=(int)this.pilot_co.get(i).x;
+						if(x>this.pilot_co.get(i).x-0.1)
+						{
+							this.pilot_co.get(i).x+=0.1;
+						}
+						else
+						{
+							this.pilot_co.get(i).x-=0.1;
+						}
 					
 						ret = 1;
 						stop = false;
@@ -183,28 +186,31 @@ public class Race {
 		int ret = 0; 
 		boolean stop = true;
 		//calculates position on y axis
-		for(int y=pilot_co.get(i).y-1;y<=pilot_co.get(i).y+1 && stop;y++)
+		for(int y=(int)pilot_co.get(i).y-1;y<=(int)pilot_co.get(i).y+1 && stop;y++)
 		{
-			if((y!=this.pilot_last_co.get(i).y || this.race_map.map_data(this.pilot_co.get(i).x, this.pilot_co.get(i).y, 0)==2) && (y!=this.pilot_co.get(i).y))
+			if((y!=this.pilot_last_co.get(i).y || this.race_map.map_data((int)this.pilot_co.get(i).x, (int)this.pilot_co.get(i).y, 0)==2) && (y!=this.pilot_co.get(i).y))
 			{
-				if(this.race_map.map_data(this.pilot_co.get(i).x, y, 0)==next)
+				if(this.race_map.map_data((int)this.pilot_co.get(i).x, y, 0)==next)
 				{
-					this.pilot_last_co.get(i).x=this.pilot_co.get(i).x;
-					this.pilot_last_co.get(i).y=this.pilot_co.get(i).y;
-					
-					this.pilot_co.get(i).y=y;
+					this.pilot_last_co.get(i).y=(int)this.pilot_co.get(i).y;
+					this.pilot_co.get(i).y+=0.1;
 				
 					ret = 1;
 					stop = false;
 				}
 				else
 				{
-					if(this.race_map.map_data(this.pilot_co.get(i).x, y, 0)==1)
+					if(this.race_map.map_data((int)this.pilot_co.get(i).x, y, 0)==1)
 					{
-						//this.cars_last_co[i].x=this.cars_co[i].x;
-						this.pilot_last_co.get(i).y=this.pilot_co.get(i).y;
-						
-						this.pilot_co.get(i).y=y;
+						this.pilot_last_co.get(i).y=(int)this.pilot_co.get(i).y;
+						if(y>this.pilot_co.get(i).y-0.1)
+						{
+							this.pilot_co.get(i).y+=0.1;
+						}
+						else
+						{
+							this.pilot_co.get(i).y-=0.1;
+						}
 					
 						ret = 1;
 						stop = false;
@@ -212,6 +218,7 @@ public class Race {
 				}
 			}
 		}
+		
 		return ret;
 	}
 	

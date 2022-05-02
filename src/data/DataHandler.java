@@ -41,6 +41,7 @@ public class DataHandler {
 		}
 		
 		Document document = null;
+		
 		try {
 			document = builder.parse(source);
 		} catch (SAXException e) {
@@ -67,6 +68,8 @@ public class DataHandler {
 		}
 		
 		score.sort();
+		
+		
 		
 		return score;
 		
@@ -145,6 +148,7 @@ public class DataHandler {
 		logger.write(Level.INFO,"Writing to file.");
 		
 		DOMSource source = new DOMSource(document);
+		
 		TransformerFactory transformer_factory = TransformerFactory.newInstance();
 		Transformer transformer = null;
 		try {
@@ -153,6 +157,7 @@ public class DataHandler {
 			logger.write(Level.SEVERE,e);
 		}
 		
+		transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		transformer.setOutputProperty(OutputKeys.METHOD, "xml");
 		

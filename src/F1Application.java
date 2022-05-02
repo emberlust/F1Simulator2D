@@ -6,7 +6,7 @@ public class F1Application {
 		
 		RaceFacade f1 = new RaceFacade();
 		
-		f1.choose_pilots();
+		f1.chose_pilots();
 		f1.chose_map_and_loops();
 		f1.prepare_race();
 		f1.simulate_race();
