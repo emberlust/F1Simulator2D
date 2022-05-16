@@ -1,10 +1,9 @@
 import data.RaceFacade;
 
-
 public class F1Application {
 
 	public static void main(String[] args) {
-
+		
 		RaceFacade f1 = new RaceFacade();
 		
 		f1.chose_pilots();
