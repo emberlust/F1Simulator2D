@@ -6,6 +6,7 @@ import gui.Window;
 import map.Map;
 import map.MapBuilder;
 
+
 public class RaceFacade {
 
 	private Race race;
@@ -57,7 +58,9 @@ public class RaceFacade {
 	public ScoreBoard simulate_race()
 	{
 		this.race.start_race();
+		
 		//DataHandler.push_data(this.race.get_score());
+		
 		return this.race.get_score();
 	}
 	
