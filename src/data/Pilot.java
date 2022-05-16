@@ -1,8 +1,6 @@
 package data;
 
 import car.Car;
-import map.Coordinates;
-import map.Map;
 
 public class Pilot {
 	
@@ -11,7 +9,6 @@ public class Pilot {
 	private Car car;
 	private String team;
 	
-	//random pilot
 	public Pilot()
 	{
 		this.car = new Car();

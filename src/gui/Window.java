@@ -50,7 +50,7 @@ public class Window {
 	   
 	}
 	
-	public void add_car(float x, float y)
+	public void add_car(int x, int y)
 	{
 		CarModel car = new CarModel();
 		    
@@ -72,7 +72,7 @@ public class Window {
 		cars.removeElementAt(i);
 	}
 	
-	public void set_co(float x, float y,int i)
+	public void set_co(int x, int y,int i)
 	{
 		float off1 = (600/this.race.get_map().get_size());
 	    float off2 = (600/this.race.get_map().get_size())/2;

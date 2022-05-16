@@ -18,7 +18,7 @@ public class RaceFacade {
 		
 	}
 	
-	public void chose_pilots()
+	public void choose_pilots()
 	{
 		CarFactory cf = new CarFactory();
 		
@@ -57,9 +57,6 @@ public class RaceFacade {
 	public ScoreBoard simulate_race()
 	{
 		this.race.start_race();
-		
-		//DataHandler.push_data(this.race.get_score());
-		
 		return this.race.get_score();
 	}
 	

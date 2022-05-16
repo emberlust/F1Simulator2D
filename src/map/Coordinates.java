@@ -1,10 +1,10 @@
 package map;
 
 public class Coordinates{
-	public float x;
-	public float y;
+	public int x;
+	public int y;
 	
-	public Coordinates(float x, float y)
+	public Coordinates(int x, int y)
 	{
 		this.x=x;
 		this.y=y;
