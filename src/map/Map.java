@@ -4,6 +4,10 @@ public class Map {
 	private float[][][] map_matrix;
 	private int map_size;
 	private Coordinates start_line;
+	private Coordinates first_grid;
+	
+	private int tile_oc[][];
+	
 	public Map(MapBuilder mb)
 	{
 		this.map_size = mb.size;
@@ -21,15 +25,20 @@ public class Map {
 	{
 		this.map_size=size;
 		this.map_matrix = new float[size][size][2]; 
+		this.tile_oc = new int[size][size];
 		
 		for(int i = 0; i < size ; i++)
-		{
+		{	
 			for(int j = 0; j < size ; j++)
 			{
 				this.map_matrix[i][j][0] = 0;
 				this.map_matrix[i][j][1] = Float.MAX_VALUE;
+				
+				this.tile_oc[i][j] = 0;
 			}
 		}
+		
+		
 	}
 	
 	
@@ -71,13 +80,42 @@ public class Map {
 		start_line.y=this.map_size/2;
 		start_line.x=2;
 		
-		return start_line;
 		
+		this.first_grid = new Coordinates(this.start_line.x,this.start_line.y-1);
+		return this.start_line;
+		
+	}
+	
+	public void set_oc(Coordinates co,boolean is_oc)
+	{
+		if(is_oc)
+		{
+			this.tile_oc[co.x][co.y] = 1;
+		}
+		else
+		{
+			this.tile_oc[co.x][co.y] = 0;
+		}
+	}
+	
+	public boolean is_oc(Coordinates co)
+	{
+		if(this.tile_oc[co.x][co.y] == 1)
+		{
+			return true;
+		}
+		
+		return false;
 	}
 	
 	public Coordinates get_start_line()
 	{
 		return this.start_line;
+	}
+	
+	public Coordinates get_first_grid()
+	{
+		return this.first_grid;
 	}
 	
 	public int get_size()

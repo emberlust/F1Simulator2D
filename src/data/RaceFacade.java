@@ -42,7 +42,6 @@ public class RaceFacade {
 	
 	public void prepare_race()
 	{	
-		
 		race = new Race(this.map, nof_loops);
 		
 		for(Pilot pilot : pilots)

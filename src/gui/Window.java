@@ -46,7 +46,6 @@ public class Window {
 	    frame.setVisible(true);
 	    
 	    this.race.set_window(this);
-	    this.race.start_race();
 	   
 	}
 	
