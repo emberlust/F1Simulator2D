@@ -19,8 +19,11 @@ public class Race {
 	
 	private Window main_window;
 	
+	private int loops;
+	
 	public Race(Map map,int no_loops)
 	{
+		this.loops = no_loops;
 		this.Scoreboard = new ScoreBoard();
 		this.race_map = map;
 		this.pilots =  new Vector<Pilot>(0);
@@ -41,8 +44,8 @@ public class Race {
 			this.pilots.add(pilot);
 			c_p++;
 			this.no_pilots = this.c_p;
-			pilot.set_race(this);
-			pilot.go_on_position(race_map);
+			pilot.pass_map(race_map);
+			pilot.go_on_position(this.loops);
 		}
 		else
 		{
@@ -61,11 +64,11 @@ public class Race {
 			this.main_window.add_car(pilots.get(i).get_p().x, pilots.get(i).get_p().y);
 		}
 		
-		while(true)
+		while(this.pilots.isEmpty() == false)
 		{
 			for(int i = 0;i<this.no_pilots;i++)
 			{
-				pilots.get(i).make_decision(race_map);
+				pilots.get(i).make_decision();
 				this.main_window.set_co(pilots.get(i).get_p().x, pilots.get(i).get_p().y, i);
 			}
 		}

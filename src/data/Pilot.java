@@ -45,34 +45,6 @@ public class Pilot {
 		return this.team;
 	}
 	
-	public int make_decision(float speed, int road_tipe)
-	{
-		if(road_tipe == (float)2)
-		{
-			this.car.in_box();
-		}
-		
-		if(this.car.get_c_speed()<speed)
-		{
-			this.car.accelerate(speed);	
-		}
-		else
-		{
-			this.car.brake(speed);
-		}
-		
-		
-		if(this.car.feedback())
-		{
-			return 2;
-		}
-		else
-		{
-			return 1;
-		}
-		
-	}
-	
 	//testing movement by pilot
 	
 	
@@ -84,74 +56,40 @@ public class Pilot {
 	
 	private Random random_event = null;
 	
-	private Race race = null;
+	private int loops;
+	private int c_loops;
 	
-	public void set_race(Race race)
+	private Map map;
+	
+	public void pass_map(Map map)
 	{
-		this.race = race;
+		this.map = map;
 	}
 	
-	public void go_on_position(Map map)
+	public void go_on_position(int loops)
 	{	
-		Coordinates co = new Coordinates();
-		co.x = map.get_first_grid().x;
-		co.y = map.get_first_grid().y;
 		
-		Coordinates co2 = new Coordinates();
-		co2.x = map.get_start_line().x;
-		co2.y = map.get_start_line().y;
-		
-		while(true)
-		{
-			if(!map.is_oc(co))
-			{
-				map.set_oc(co, true);
-				break;
-			}
-			for(int x = co.x-1;x<=co.x+1;x++)
-			{
-				if(x!=co2.x && x!=co.x && x!=map.get_start_line().x && map.map_data(x, co.y, 0) == 1)
-				{
-					co2.x=co.x;
-					co.x=x;
-				}
-			}
-			
-			for(int y = co.y-1;y<=co.y+1;y++)
-			{
-				if(y!= co2.y && y!=co.y && y!=map.get_start_line().y &&map.map_data(co.x, y, 0) == 1)
-				{
-					co2.y = co.y;
-					co.y = y;
-				}
-			}
-		}
+		this.loops = loops;
+		this.c_loops = 0;
 		
 		this.c_co = new Coordinates();
-		this.c_co.x = co.x;
-		this.c_co.y = co.y;
-		
-		for(int x = co.x-1;x<=co.x+1;x++)
-		{
-			if(x!=co2.x && x!=co.x && x!=map.get_start_line().x && map.map_data(x, co.y, 0) == 1)
-			{
-				co2.x=co.x;
-				co.x=x;
-			}
-		}
-		
-		for(int y = co.y-1;y<=co.y+1;y++)
-		{
-			if(y!= co2.y && y!=co.y && y!=map.get_start_line().y &&map.map_data(co.x, y, 0) == 1)
-			{
-				co2.y = co.y;
-				co.y = y;
-			}
-		}
-		
 		this.l_co = new Coordinates();
-		this.l_co.x = co.x;
-		this.l_co.y = co.y;
+		
+		this.c_co.x = map.get_first_grid().x;
+		this.c_co.y = map.get_first_grid().y;
+		
+		this.l_co.x = map.get_start_line().x;
+		this.l_co.y = map.get_start_line().y;
+		
+		while(map.is_oc(l_co) == true)
+		{
+			this.make_decision();
+			this.calculate_on_x(map);
+			this.calculate_on_y(map);
+		}
+		
+		Coordinates.swap(l_co, c_co);
+		
 		this.t_now = Instant.now();
 	}
 	
@@ -165,7 +103,7 @@ public class Pilot {
 		return this.l_co;
 	}
 	
-	public void make_decision(Map map)
+	public boolean make_decision()
 	{
 		if(this.random_event == null)
 		{
@@ -181,8 +119,22 @@ public class Pilot {
 			this.car_action(map.map_data(this.c_co.x, this.c_co.y, 1));
 			this.calculate_on_x(map);
 			this.calculate_on_y(map);
+			
+			if(Coordinates.is_equal(c_co, map.get_start_line()))
+			{
+				this.c_loops++;
+			}
+			
+			if(this.c_loops == loops)
+			{
+				return true;
+			}
+			
 			this.t_now = Instant.now();
 		}
+		
+		return false;
+		
 	}
 	
 	private void car_action(float speed)
@@ -213,16 +165,6 @@ public class Pilot {
 					if(this.random_event.nextInt(1000) > 500)
 					{
 						overcome = true;
-//						for(int i = 0;i<this.race.get_pilots().size();i++)
-//						{
-//							if(x == this.race.get_pilots().get(i).get_p().x && this.c_co.y == this.race.get_pilots().get(i).get_p().y)
-//							{
-//								Coordinates.swap(this.c_co,this.race.get_pilots().get(i).get_p());
-//								Coordinates.swap(this.l_co,this.race.get_pilots().get(i).get_lp());					
-//								car.brake(this.race.get_pilots().get(i).get_car_details().get_c_speed());
-//								break;
-//							}
-//						}
 					}
 				}
 				System.out.println("I move");
@@ -262,16 +204,6 @@ public class Pilot {
 					if(this.random_event.nextInt(1000) > 500)
 					{
 						overcome = true;
-//						for(int i = 0;i<this.race.get_pilots().size();i++)
-//						{
-//							if(y == this.race.get_pilots().get(i).get_p().y && this.c_co.x == this.race.get_pilots().get(i).get_p().x)
-//							{
-//								Coordinates.swap(this.c_co,this.race.get_pilots().get(i).get_p());
-//								Coordinates.swap(this.l_co,this.race.get_pilots().get(i).get_lp());
-//								car.brake(this.race.get_pilots().get(i).get_car_details().get_c_speed());
-//								break;
-//							}
-//						}
 					}	
 				}
 				
