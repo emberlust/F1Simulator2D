@@ -16,4 +16,30 @@ public class Coordinates{
 		this.y = 0;
 	}
 	
+	public static void swap(Coordinates c1, Coordinates c2)
+	{
+		Coordinates swap = new Coordinates();
+		
+		swap.x = c1.x;
+		swap.y = c1.y;
+		
+		c1.x = c2.x;
+		c1.y = c2.y;
+		
+		c2.x = swap.x;
+		c2.y = swap.y;
+		
+	}
+	
+	public static boolean is_equal(Coordinates c1, Coordinates c2)
+	{
+		
+		if(c1.x == c2.x && c1.y == c2.y)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
 }

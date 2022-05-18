@@ -51,7 +51,7 @@ public class Window {
 	
 	public void add_car(int x, int y)
 	{
-		CarModel car = new CarModel();
+		CarModel car = new CarModel(this.race.get_map().get_size());
 		    
 		float off1 = (600/this.race.get_map().get_size());
 		float off2 = (600/this.race.get_map().get_size())/2;

@@ -22,11 +22,14 @@ public class RaceFacade {
 	{
 		CarFactory cf = new CarFactory();
 		
-		this.pilots = new Pilot[4];
+		this.pilots = new Pilot[6];
 		pilots[0] = new Pilot("gigel",new Car(1,10,0,999,1),"Mercedes");
 		pilots[1] = new Pilot("ionica",new Car(2,5,0,999,1),"Redbull");
 		pilots[2] = new Pilot("gheorge",new Car(3,6,0,999,1),"TurboP");
-		pilots[3] = new Pilot("costica", cf.get_car(150),"Mercedes");
+		pilots[3] = new Pilot("gigel",new Car(1,11,0,999,1),"Mercedes");
+		pilots[4] = new Pilot("ionica",new Car(2,7,0,999,1),"Redbull");
+		pilots[5] = new Pilot("gheorge",new Car(3,12,0,999,1),"TurboP");
+		//pilots[3] = new Pilot("costica", cf.get_car(150),"Mercedes");
 	}
 	
 	public void chose_map_and_loops()

@@ -41,6 +41,7 @@ public class Race {
 			this.pilots.add(pilot);
 			c_p++;
 			this.no_pilots = this.c_p;
+			pilot.set_race(this);
 			pilot.go_on_position(race_map);
 		}
 		else
@@ -69,6 +70,11 @@ public class Race {
 			}
 		}
 		
+	}
+	
+	public Vector<Pilot> get_pilots()
+	{
+		return this.pilots;
 	}
 	
 	public Map get_map()
