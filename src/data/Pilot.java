@@ -203,6 +203,7 @@ public class Pilot {
 	
 	private void calculate_on_x(Map map)
 	{		
+		boolean overcome = false;
 		for(int x = this.c_co.x - 1; x <= this.c_co.x + 1; x++)
 		{
 			if(!Coordinates.is_equal(l_co, new Coordinates(x,this.c_co.y)) && !Coordinates.is_equal(c_co, new Coordinates(x,this.c_co.y)) && map.map_data(x, this.c_co.y, 0) == 1)
@@ -211,19 +212,18 @@ public class Pilot {
 				{
 					if(this.random_event.nextInt(1000) > 500)
 					{
-						for(int i = 0;i<this.race.get_pilots().size();i++)
-						{
-							if(x == this.race.get_pilots().get(i).get_p().x && this.c_co.y == this.race.get_pilots().get(i).get_p().y)
-							{
-								Coordinates.swap(this.c_co,this.race.get_pilots().get(i).get_p());
-								Coordinates.swap(this.l_co,this.race.get_pilots().get(i).get_lp());					
-								car.brake(this.race.get_pilots().get(i).get_car_details().get_c_speed());
-								break;
-							}
-						}
+						overcome = true;
+//						for(int i = 0;i<this.race.get_pilots().size();i++)
+//						{
+//							if(x == this.race.get_pilots().get(i).get_p().x && this.c_co.y == this.race.get_pilots().get(i).get_p().y)
+//							{
+//								Coordinates.swap(this.c_co,this.race.get_pilots().get(i).get_p());
+//								Coordinates.swap(this.l_co,this.race.get_pilots().get(i).get_lp());					
+//								car.brake(this.race.get_pilots().get(i).get_car_details().get_c_speed());
+//								break;
+//							}
+//						}
 					}
-					
-					break;	
 				}
 				System.out.println("I move");
 				
@@ -234,6 +234,13 @@ public class Pilot {
 				this.c_co.x = x;
 					
 				map.set_oc(c_co, true);
+				
+				if(overcome)
+				{
+					this.calculate_on_x(map);
+					this.calculate_on_y(map);
+					map.set_oc(l_co, true);
+				}
 			
 				break;
 				
@@ -243,6 +250,9 @@ public class Pilot {
 	
 	private void calculate_on_y(Map map)
 	{		
+		
+		boolean overcome = false;
+		
 		for(int y = this.c_co.y - 1; y <= this.c_co.y + 1; y++)
 		{
 			if(!Coordinates.is_equal(l_co, new Coordinates(this.c_co.x,y)) && !Coordinates.is_equal(c_co, new Coordinates(this.c_co.x,y)) && map.map_data(this.c_co.x, y, 0) == 1)
@@ -251,19 +261,18 @@ public class Pilot {
 				{
 					if(this.random_event.nextInt(1000) > 500)
 					{
-						for(int i = 0;i<this.race.get_pilots().size();i++)
-						{
-							if(y == this.race.get_pilots().get(i).get_p().y && this.c_co.x == this.race.get_pilots().get(i).get_p().x)
-							{
-								Coordinates.swap(this.c_co,this.race.get_pilots().get(i).get_p());
-								Coordinates.swap(this.l_co,this.race.get_pilots().get(i).get_lp());
-								car.brake(this.race.get_pilots().get(i).get_car_details().get_c_speed());
-								break;
-							}
-						}
-					}
-					
-					break;	
+						overcome = true;
+//						for(int i = 0;i<this.race.get_pilots().size();i++)
+//						{
+//							if(y == this.race.get_pilots().get(i).get_p().y && this.c_co.x == this.race.get_pilots().get(i).get_p().x)
+//							{
+//								Coordinates.swap(this.c_co,this.race.get_pilots().get(i).get_p());
+//								Coordinates.swap(this.l_co,this.race.get_pilots().get(i).get_lp());
+//								car.brake(this.race.get_pilots().get(i).get_car_details().get_c_speed());
+//								break;
+//							}
+//						}
+					}	
 				}
 				
 				System.out.println("I move");
@@ -275,6 +284,13 @@ public class Pilot {
 				this.c_co.y = y;
 					
 				map.set_oc(c_co, true);
+				
+				if(overcome)
+				{
+					this.calculate_on_x(map);
+					this.calculate_on_y(map);
+					map.set_oc(l_co, true);
+				}
 					
 				break;
 			}
