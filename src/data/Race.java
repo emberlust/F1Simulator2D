@@ -2,8 +2,9 @@ package data;
 
 import java.util.Vector;
 import logging.*;
+import map.Coordinates;
 import map.Map;
-import gui.Window;
+import gui.GameWindow;
 
 public class Race {
 	
@@ -17,19 +18,27 @@ public class Race {
 
 	private ScoreBoard Scoreboard = null;
 	
-	private Window main_window;
+	private GameWindow main_window;
 	
 	private int loops;
 	
-	public Race(Map map,int no_loops)
+	public Race()
 	{
-		this.loops = no_loops;
 		this.Scoreboard = new ScoreBoard();
-		this.race_map = map;
 		this.pilots =  new Vector<Pilot>(0);
 	}
 	
-	public void set_window(Window window)
+	public void set_map(Map map)
+	{
+		this.race_map = map;
+	}
+	
+	public void set_loops(int lp)
+	{
+		this.loops = lp;
+	}
+	
+	public void set_window(GameWindow window)
 	{
 		this.main_window = window;
 	}
@@ -58,17 +67,62 @@ public class Race {
 	//starts the race
 	public void start_race()
 	{
+		this.Scoreboard = new ScoreBoard();
 		
-		for(int i = 0;i<this.no_pilots;i++)
+		for(int i = 0;i<this.c_p;i++)
 		{
 			this.main_window.add_car(pilots.get(i).get_p().x, pilots.get(i).get_p().y);
 		}
-		
 		while(this.pilots.isEmpty() == false)
 		{
-			for(int i = 0;i<this.no_pilots;i++)
+			for(int i = 0;i<this.c_p;i++)
 			{
-				pilots.get(i).make_decision();
+				int rsp = pilots.get(i).make_decision();
+				if( rsp == 1)
+				{
+					this.Scoreboard.place_participant(pilots.get(i), this.c_p);
+					this.main_window.dispose(i);
+					this.race_map.set_oc(pilots.get(i).get_p(), false);
+					pilots.remove(i);
+					this.c_p--;
+					break;
+				}
+				
+				if( rsp == 2)
+				{
+					this.Scoreboard.place_participant(pilots.get(i), 0);
+					this.main_window.dispose(i);
+					this.race_map.set_oc(pilots.get(i).get_p(), false);
+					pilots.remove(i);
+					this.c_p--;
+					break;
+				}
+				
+				if(rsp == 3)
+				{
+					Coordinates co = new Coordinates(pilots.get(i).get_p().x,pilots.get(i).get_p().y);
+					
+					boolean found = false;
+					
+					do
+					{
+						for(int t = 0;t<this.c_p;t++)
+						{
+							if(Coordinates.is_equal(co, pilots.get(t).get_p()))
+							{
+								this.Scoreboard.place_participant(pilots.get(t), 0);
+								this.main_window.dispose(t);
+								this.race_map.set_oc(pilots.get(t).get_p(), false);
+								pilots.remove(t);
+								this.c_p--;
+								found = true;
+								break;
+							}
+						}
+					}while(found);
+					break;
+				}
+				
 				this.main_window.set_co(pilots.get(i).get_p().x, pilots.get(i).get_p().y, i);
 			}
 		}
@@ -89,5 +143,14 @@ public class Race {
 	{
 		return this.Scoreboard;
 	}
-
+	
+	public boolean is_empty()
+	{
+		if(this.c_p == 0)
+		{
+			return true;
+		}
+		
+		return false;
+	}
 }

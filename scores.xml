@@ -1,19 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
+            
+    
     <pilots>
+                        
+        
         <pilot>
+                                    
+            
             <name>Pilot1</name>
-            <points>1</points>  
+                                    
+            
+            <points>1</points>
+                          
+        
+        
         </pilot>
+                        
+        
         <pilot>
+                                    
+            
             <name>Pilot2</name>
+                                    
+            
             <points>20</points>
+                                
+        
         </pilot>
+                    
+        
+        <pilot>
+                        
+            <name>ionel</name>
+                        
+            <points>4</points>
+                    
+        </pilot>
+                
+        <pilot>
+                        
+            <name>gigel</name>
+                        
+            <points>2</points>
+                    
+        </pilot>
+            
     </pilots>
+            
+    
     <teams>
-        <team> 
+                        
+        
+        <team>
+                         
+            
+            
             <name>Team1</name>
+                                    
+            
             <points>10</points>
+                                
+        
         </team>
+                    
+    
     </teams>
+        
+
 </data>

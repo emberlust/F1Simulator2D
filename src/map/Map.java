@@ -81,7 +81,7 @@ public class Map {
 		start_line.x=2;
 		
 		
-		this.first_grid = new Coordinates(this.start_line.x,this.start_line.y-1);
+		this.first_grid = new Coordinates(this.start_line.x,this.start_line.y + 1);
 		return this.start_line;
 		
 	}

@@ -26,6 +26,9 @@ public class CarModel extends JPanel {
 				this.setBackground(Color.cyan);
 			}
 		}
+		
+		
+		
 		this.setSize((int)(20 * 20/off), (int)(20 * 20/off));
 		
 	}
