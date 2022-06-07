@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,7 +16,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 
 import car.CarFactory;
 import data.DataHandler;
@@ -308,9 +306,9 @@ public class GameWindow {
 		grid.setLocation(10, 10);
 	}
 	
-	
 	public void score_window(ScoreBoard sb)
 	{
+		enum cars_enum {NULL,AlfaRomeo,Ferrari,Mercedes};
 		
 		frame.getContentPane().removeAll();
 		frame.repaint();
@@ -323,12 +321,17 @@ public class GameWindow {
 		
 		tb.addColumn("Name");
 		tb.addColumn("Score");
+		tb.addColumn("Car");
 		
 		int nop = sb.get_no_participants();
 		
 		for(int i = 0;i<nop;i++)
 		{
-			tb.insertRow(0,new Object[] {sb.get_participant(i).get_name(),sb.get_score(i)});
+			tb.insertRow(0,new Object[] {
+					sb.get_participant(i).get_name(),
+					sb.get_score(i),
+					cars_enum.values()[sb.get_participant(i).get_car_details().get_id()].toString()==NULL?"":cars_enum.values()[sb.get_participant(i).get_car_details().get_id()].toString()
+					});
 		}
 		
 		JScrollPane jp = new JScrollPane(score);

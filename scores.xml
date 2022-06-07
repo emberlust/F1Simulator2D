@@ -1,71 +1,341 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <data>
-            
+                                    
+    
+    
+    
+    
+    
+    
     
     <pilots>
-                        
+                                                                        
+        
+        
+        
+        
+        
+        
         
         <pilot>
-                                    
+                                                                                                            
+            
+            
+            
+            
+            
+            
             
             <name>Pilot1</name>
-                                    
+                                                                                                            
+            
+            
+            
+            
+            
+            
             
             <points>1</points>
-                          
+                                                                                                  
+        
+        
+        
+        
+        
+        
         
         
         </pilot>
-                        
+                                                                        
+        
+        
+        
+        
+        
+        
         
         <pilot>
-                                    
+                                                                                                            
+            
+            
+            
+            
+            
+            
             
             <name>Pilot2</name>
-                                    
+                                                                                                            
+            
+            
+            
+            
+            
+            
             
             <points>20</points>
-                                
+                                                                                                        
+        
+        
+        
+        
+        
+        
         
         </pilot>
-                    
+                                                                    
+        
+        
+        
+        
+        
+        
         
         <pilot>
-                        
+                                                                                                
+            
+            
+            
+            
+            
+            
             <name>ionel</name>
-                        
-            <points>4</points>
-                    
+                                                                                                
+            
+            
+            
+            
+            
+            
+            <points>15</points>
+                                                                                            
+        
+        
+        
+        
+        
+        
         </pilot>
-                
+                                                                
+        
+        
+        
+        
+        
+        
         <pilot>
-                        
+                                                                                                
+            
+            
+            
+            
+            
+            
             <name>gigel</name>
-                        
-            <points>2</points>
-                    
+                                                                                                
+            
+            
+            
+            
+            
+            
+            <points>8</points>
+                                                                                            
+        
+        
+        
+        
+        
+        
         </pilot>
+                                                            
+    
+        
+        
+        
+        
+        
+        <pilot>
+                                                                        
             
+            
+            
+            
+            <name/>
+                                                                        
+            
+            
+            
+            
+            <points>5</points>
+                                                                    
+        
+        
+        
+        
+        </pilot>
+                                                
+        
+        
+        
+        
+        <pilot>
+                                                                        
+            
+            
+            
+            
+            <name>b</name>
+                                                                        
+            
+            
+            
+            
+            <points>4</points>
+                                                                    
+        
+        
+        
+        
+        </pilot>
+                                                
+        
+        
+        
+        
+        <pilot>
+                                                                        
+            
+            
+            
+            
+            <name>adas</name>
+                                                                        
+            
+            
+            
+            
+            <points>3</points>
+                                                                    
+        
+        
+        
+        
+        </pilot>
+                                                
+        
+        
+        
+        
+        <pilot>
+                                                                        
+            
+            
+            
+            
+            <name>asa</name>
+                                                                        
+            
+            
+            
+            
+            <points>2</points>
+                                                                    
+        
+        
+        
+        
+        </pilot>
+                                                
+        
+        
+        
+        
+        <pilot>
+                                                                        
+            
+            
+            
+            
+            <name>a</name>
+                                                                        
+            
+            
+            
+            
+            <points>1</points>
+                                                                    
+        
+        
+        
+        
+        </pilot>
+                                            
+    
+    
+    
+    
     </pilots>
-            
+                                    
+    
+    
+    
+    
+    
+    
     
     <teams>
-                        
+                                                                        
+        
+        
+        
+        
+        
+        
         
         <team>
-                         
+                                                                                                 
+            
+            
+            
+            
+            
+            
             
             
             <name>Team1</name>
-                                    
+                                                                                                            
+            
+            
+            
+            
+            
+            
             
             <points>10</points>
-                                
+                                                                                                        
+        
+        
+        
+        
+        
+        
         
         </team>
-                    
+                                                                    
+    
+    
+    
+    
+    
+    
     
     </teams>
-        
+                                
+
+
+
+
+
+
 
 </data>
