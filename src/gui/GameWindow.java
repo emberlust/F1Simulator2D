@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import car.Car;
 import car.CarFactory;
 import data.DataHandler;
 import data.Pilot;
@@ -327,10 +328,24 @@ public class GameWindow {
 		
 		for(int i = 0;i<nop;i++)
 		{
+
+			Car car = sb.get_participant(i).get_car_details();
+
+			String n_car;
+
+			if(car == null)
+			{
+				n_car = "no";
+			}
+			else{
+				n_car = cars_enum.values()[sb.get_participant(i).get_car_details().get_id()].toString();
+			}
+
+
 			tb.insertRow(0,new Object[] {
 					sb.get_participant(i).get_name(),
 					sb.get_score(i),
-					cars_enum.values()[sb.get_participant(i).get_car_details().get_id()].toString()==NULL?"":cars_enum.values()[sb.get_participant(i).get_car_details().get_id()].toString()
+					n_car
 					});
 		}
 		
